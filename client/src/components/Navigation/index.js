@@ -1,17 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-function Navigation(props) {
-  const {
-    games = [],
-    setCurrentGame,
-    currentGame
-  } = props;
-
+function Navigation() {
   return (
     <header className="nav flex-row">
       <h1>
         <a data-testid="link" href="/">
-          #CoffeeWorkoutVideoGame
+          Vapor
         </a>
       </h1>
       <nav>
@@ -31,13 +25,6 @@ function Navigation(props) {
               My Dashboard
             </a>
           </li>
-          {games.map((game) => (
-            <li>
-              <a href={`#${game.name}`}>
-                  {game.name}
-              </a>
-            </li>
-          ))}
         </ul>
       </nav>
     </header>

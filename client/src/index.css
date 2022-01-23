@@ -41,7 +41,7 @@ code {
   color: var(--off-white);
 }
 
-li {
+.nav li {
   list-style: none;
 }
 
@@ -52,6 +52,46 @@ a {
   padding: 2px 10px;
   margin-left: -2px;
   margin-right: -2px;
+}
+
+.about {
+  border: 1px solid var(--darkest);
+  margin: 10px;
+  padding: 10px;
+  width: 75%;
+}
+
+.gameList {
+  border: 1px solid var(--darkest);
+  margin: 10px;
+  padding: 10px;
+  width: 20%;
+}
+
+.gameList a {
+  color: var(--darkest);
+}
+
+.game {
+  border: 1px solid var(--darkest);
+  margin: 10px;
+  padding: 10px;
+  width: 75%;
+}
+
+.discussion {
+  border: 1px solid var(--darkest);
+  margin: 10px;
+  padding: 10px;
+  width: 75%;
+}
+
+.discussion li {
+  border: 1px solid var(--darkest);
+  margin: 10px;
+  padding: 10px;
+  width: 90%;
+  list-style: none;
 }
 
 .footer {
