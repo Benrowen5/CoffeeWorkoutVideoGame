@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Navigation from './components/Navigation';
+import Footer from './components/Footer';
 
 function App() {
+  //temporary test data
+  const [games] = useState([
+    {
+      name: 'Skyrim',
+      description: 'Open world medieval role playing game',
+    },
+    { name: 'Mario Kart', description: 'Action packed racing game' },
+    { name: 'Soul Calliber', description: 'Button mashing fighter' },
+    { name: 'Animal Crossing', description: 'Cute farm animals' }
+  ]);
+
+  const [currentGame, setCurrentGame] = useState();
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navigation
+        games={games}
+        setCurrentGame={setCurrentGame}
+        currentGame={currentGame}
+      ></Navigation>
+      <h3>
+        Main content goes here
+      </h3>
+      <Footer></Footer>
     </div>
   );
 }
