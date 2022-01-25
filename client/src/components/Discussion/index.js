@@ -9,6 +9,8 @@ const Discussion = () => {
             commentText: "Test comment 1",
             username: "Paige",
             userId: "61bd2c0595aea8a455c9d9f3",
+            gamename: "Animal Crossing",
+            gameId: "1234",
             replies: [
                 {
                     replyBody: "Heres a reply",
@@ -32,6 +34,8 @@ const Discussion = () => {
             commentText: "Test comment 2",
             username: "Sue",
             userId: "61c0e508ec7479a60d5b36f1",
+            gamename: "Skyrim",
+            gameId: "5432",
             replies: [
                 {
                     "replyBody": "Heres a 3rd reply",
@@ -48,6 +52,8 @@ const Discussion = () => {
             commentText: "Test comment 3",
             username: "Paige",
             userId: "61bd2c0595aea8a455c9d9f3",
+            gamename: "Skyrim",
+            gameId: "5432",
             replies: [],
             createdAt: "Dec 20th, 2021 at 15:25 pm",
         }
