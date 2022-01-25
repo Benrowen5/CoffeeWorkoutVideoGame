@@ -10,7 +10,6 @@ function App() {
   const [currentPage, handlePageChange] = useState('Home');
 
   const renderPage = () => {
-    <Navigation></Navigation>
     switch (currentPage) {
       case 'Homepage':
         return <Home />;
@@ -21,17 +20,17 @@ function App() {
       default:
         return <Home />;
     }
-    <Footer></Footer>
   };
-  
+
   return (
     <div>
-        <nav>
-            {/* Pass the state value and the setter as props to navTabs */}
-            <Navigation currentPage={currentPage} handlePageChange={handlePageChange} />
-            {/* Call the renderPage function passing in the currentPage */}
-        </nav>
-        <div>{renderPage(currentPage)}</div>
+      <nav>
+        {/* Pass the state value and the setter as props to navTabs */}
+        <Navigation currentPage={currentPage} handlePageChange={handlePageChange} />
+        {/* Call the renderPage function passing in the currentPage */}
+      </nav>
+      <div>{renderPage(currentPage)}</div>
+      <Footer></Footer>
     </div>
   );
 }
