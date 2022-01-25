@@ -1,25 +1,38 @@
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Navigation from './components/Navigation';
-import Footer from './components/Footer';
-
+import React, { useState } from 'react';
+import Navigation from './components/Navigation'
+import Footer from './components/Footer'
 import Home from './pages/Home';
-import Login from './pages/Login';
+import Store from './pages/Store';
+import Dashboard from './pages/Dashboard'
+
 
 function App() {
+  const [currentPage, handlePageChange] = useState('Home');
+
+  const renderPage = () => {
+    <Navigation></Navigation>
+    switch (currentPage) {
+      case 'Homepage':
+        return <Home />;
+      case 'Store':
+        return <Store />;
+      case 'My Dashboard':
+        return <Dashboard />;
+      default:
+        return <Home />;
+    }
+    <Footer></Footer>
+  };
+  
   return (
-    <div className="flex-row">
-        <Router>
-          <div>
-            <Navigation></Navigation>
-            <div className="container">
-              <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Login} />
-            </div>
-            <Footer></Footer>
-          </div>
-        </Router>
-      </div>
+    <div>
+        <nav>
+            {/* Pass the state value and the setter as props to navTabs */}
+            <Navigation currentPage={currentPage} handlePageChange={handlePageChange} />
+            {/* Call the renderPage function passing in the currentPage */}
+        </nav>
+        <div>{renderPage(currentPage)}</div>
+    </div>
   );
 }
 
