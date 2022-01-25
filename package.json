@@ -23,5 +23,9 @@
   "homepage": "https://github.com/Benrowen5/CoffeeWorkoutVideoGame#readme",
   "devDependencies": {
     "concurrently": "^7.0.0"
+  },
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.1.8"
   }
 }

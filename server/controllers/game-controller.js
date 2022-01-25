@@ -12,6 +12,14 @@ const gameController = {
                 res.status(400).json(err);
             })
     },
+
+    // Get an one game 
+    getGameById({params}, res) {
+        Game.findOne({ _id: params.GameId })
+            .then(dbGameData => res.json(dbGameData))
+            .catch(err => res.status(400).json(err));
+    },
+
     createGame({body}, res) {
         Game.create(body)
             .then(dbGameData => res.json(dbGameData))
