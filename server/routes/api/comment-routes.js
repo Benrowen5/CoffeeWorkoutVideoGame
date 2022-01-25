@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const { addComment, getCommentById, deleteComment, addReply, deleteReply } = require('../../controllers/comment-controller');
 
-// create new comment on game
+// create new comment on game (/api/comments/:gameId)
 router.route('/:gameId')
     .post(addComment);
 
-// get individual comment
+// get individual comment (/api/comments/:gameId/:commentId)
 router.route('/:commentId')
     .get(getCommentById);
 

@@ -26,7 +26,6 @@ const commentController = {
             .then(dbCommentData => res.json(dbCommentData))
             .catch(err => res.status(400).json(err));
     },
-
     // delete comment from game
     deleteComment({params}, res) {
         Comment.findOneAndDelete({ _id: params.commentId })
