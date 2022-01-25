@@ -1,8 +1,15 @@
 const router = require('express').Router();
-// require controller functions here
-// const { addComment, removeComment, addReply, removeReply } = require('../../controllers/comment-controller');
+const { getAllUsers, getUserById, addUser } = require('../../controllers/user-controller');
 
-// create comment
-// router.route('/:gameId').post(addComment);
+// GET all users and post new users
+router.route('/')
+    .get(getAllUsers)
+    .post(addUser);
+
+
+    router.route('/:id')
+        .get(getUserById);
+
+
 
 module.exports = router;
