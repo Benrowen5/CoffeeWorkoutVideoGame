@@ -1,6 +1,7 @@
 import React from 'react';
 
-function Navigation() {
+function Navigation(props) {
+  const tabs = ['Homepage', 'Store', 'My Dashboard']
   return (
     <header className="nav flex-row">
       <h1>
@@ -9,22 +10,22 @@ function Navigation() {
         </a>
       </h1>
       <nav>
-        <ul className="flex-row">
-          <li>
-            <a href="#homepage">
-              Homepage
-            </a>
-          </li>
-          <li>
-            <a href="#store">
-              Store
-            </a>
-          </li>
-          <li>
-            <a href="#dashboard">
-              My Dashboard
-            </a>
-          </li>
+        <ul className="nav nav-tabs flex-row">
+          {tabs.map(tab => (
+            <li className="nav-item" key={tab}>
+              <a
+                href={'#' + tab.toLowerCase()}
+                // Whenever a tab is clicked on,
+                // the current page is set through the handlePageChange props.
+                onClick={() => props.handlePageChange(tab)}
+                className={
+                  props.currentPage === tab ? 'nav-link active' : 'nav-link'
+                }
+              >
+                {tab}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>
