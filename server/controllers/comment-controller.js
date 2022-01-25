@@ -2,9 +2,9 @@ const { User, Comment, Game } = require('../models');
 
 const commentController = {
     // add comment to game
-    addComment({ body }, res) {
+    addComment({params, body }, res) {
         Comment.create(body)
-            .then(({_id }) => {
+            .then(({ _id }) => {
                 return Game.findOneAndUpdate(
                     { _id: params.gameId},
                     { $push: { comments: _id } },
