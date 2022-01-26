@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const GameList = (props) => {
-    const {
-        games = [],
+    const { games = [],
         setCurrentGame,
-        currentGame
-    } = props;
+        handlePageChange } = props;
 
     return (
         <div className='gameList'>
@@ -13,15 +11,19 @@ const GameList = (props) => {
                 Top Games of 2021:
             </h3>
             <ol>
-            {games.map((game) => (
-                <li>
-                    <a href={`#${game.name}`} onClick={() => {
-                        setCurrentGame(game);
-                    }}>
-                        {game.name}
-                    </a>
-                </li>
-            ))}
+                {games.map((game) => (
+                    <li key={game.name}>
+                        <a
+                            href='#game'
+                            onClick={() => {
+                                setCurrentGame({ game });
+                                handlePageChange('Game');
+                            }}
+                        >
+                            {game.name}
+                        </a>
+                    </li>
+                ))}
             </ol>
         </div>
     );
