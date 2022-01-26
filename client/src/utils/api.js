@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-//  example
+// // example
 // getSomething (data)  {
 //     let nameForReq = { backendKey: data.whatever }
 //     Axios.get("route/route", nameForReq)
 // }
 
-//  all data for one event
+// // all data for one event
 // getEvent: function (eventData) {
 //     var eventRequest = { event : eventData.event};
 //     return axios.post("/api/event/one", eventRequest);

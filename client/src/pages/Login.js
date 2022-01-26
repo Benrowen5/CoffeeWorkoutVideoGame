@@ -1,5 +1,5 @@
 //WAIT TIL SERVER READY
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Auth from '../utils/auth';
 import api from '../utils/api';
 
