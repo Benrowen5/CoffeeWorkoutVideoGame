@@ -1,11 +1,15 @@
 const { User, Game, Comment } = require('../models');
 const { populate } = require('../models/User');
+const { signToken } = require('../utils/auth');
 
 const userController = {
     // Post new user
     addUser({ body }, res) {
         User.create(body)
-            .then(dbUserData => res.json(dbUserData))
+            .then(dbUserData => {
+                const token = signToken(dbUserData);
+                res.json({token, dbUserData});
+            })
             .catch(err => {
                 console.log(err);
                 res.status(400).json(err);
@@ -27,6 +31,23 @@ const userController = {
     getUserById({params}, res) {
         User.findOne({ _id: params.id })
             .then(dbUserData => res.json(dbUserData))
+            .catch(err => res.status(400).json(err));
+    },
+    loginUser({ body }, res) {
+        User.findOne({ username: body.username })
+            .then(dbUser => {
+                // check for valid username
+                if(!dbUser) {
+                    return res.status(400).json({ message: 'Username not found.'});
+                }
+                // check for correct password
+                const correctPw = dbUser.isCorrectPassword(body.password);
+                if(!correctPw) {
+                    return res.status(400).json({ message: 'Incorrect password.'});
+                }
+                const token = signToken(user);
+                res.json({ token, user });
+            })
             .catch(err => res.status(400).json(err));
     }
 };

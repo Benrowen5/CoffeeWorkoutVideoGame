@@ -23,7 +23,13 @@ const commentController = {
     // Get an individual comment
     getCommentById({params}, res) {
         Comment.findOne({ _id: params.commentId })
-            .then(dbCommentData => res.json(dbCommentData))
+            .then(dbCommentData => {
+                if(!dbCommentData) {
+                    res.status(404).json({ message: 'Comment not found.'});
+                    return;
+                }
+                res.json(dbCommentData);
+            })
             .catch(err => res.status(400).json(err));
     },
     // delete comment from game
@@ -31,7 +37,7 @@ const commentController = {
         Comment.findOneAndDelete({ _id: params.commentId })
             .then(deleteComment => {
                 if(!deleteComment) {
-                    return res.status(400).json({ message: 'No comment found with this ID.'});
+                    return res.status(400).json({ message: 'Comment not found with this ID.'});
                 }
                 return Game.findOneAndUpdate(
                     { _id: params.gameId },
@@ -55,11 +61,12 @@ const commentController = {
             { $push: { replies: body } },
             { new: true}
         )
-            .then(dbGameData => {
-                if(!dbGameData) {
+            .then(dbCommentData => {
+                if(!dbCommentData) {
                     res.status(404).json({ message: 'No Game found with this ID.'});
                     return;
                 }
+                res.json(dbCommentData)
             })
             .catch(err => res.status(400).json(err));
     },
@@ -70,7 +77,13 @@ const commentController = {
             { $pull: { replies: { replyId: params.replyId } } },
             { new: true }
         )
-        .then(dbGameData => res.json(dbGameData))
+        .then(dbCommentData => {
+            if(!dbCommentData) {
+                res.status(404).json({ message: "no reply found."});
+                return;
+            }
+                res.json(dbCommentData);
+        })
         .catch(err => res.status(400).json(err));
     }
 }
