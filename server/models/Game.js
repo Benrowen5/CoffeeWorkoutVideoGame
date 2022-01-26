@@ -1,5 +1,4 @@
 const { Schema, model, Types } = require('mongoose');
-
 const GameSchema = new Schema(
     {
         title: {
@@ -17,7 +16,13 @@ const GameSchema = new Schema(
             required: true,
             trim: true,
             maxlength: 128
-        }
+        },
+        comments: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Comment'
+            }
+        ]
     },
     {
         toJSON: {

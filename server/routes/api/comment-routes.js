@@ -6,12 +6,12 @@ router.route('/:gameId')
     .post(addComment);
 
 // get individual comment (/api/comments/:gameId/:commentId)
-router.route('/:commentId')
+router.route('/:gameId/:commentId')
     .get(getCommentById);
 
 // create reply (/api/comments/:gameId/:commentId)
 router.route('/:gameId/:commentId')
-    .put(addReply)
+    .post(addReply)
     .delete(deleteComment);
 
 // delete reply /api/comments/:gameId/:commentId/:replyId
