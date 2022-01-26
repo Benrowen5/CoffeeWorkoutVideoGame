@@ -1,13 +1,10 @@
 //WAIT TIL SERVER READY
-
-import React, { useState } from 'react';
-// import { useMutation } from '@apollo/client';
-// import { LOGIN_USER } from '../utils/mutations'; //CHANGE THIS AWAY FROM GQL
+import React, { useState, useEffect } from 'react';
 import Auth from '../utils/auth';
+import api from '../utils/api';
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
-//   const [login, { error }] = useMutation(LOGIN_USER);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -18,11 +15,13 @@ const Login = (props) => {
     });
   };
 
-  const handleFormSubmit = async event => {
+  const loginFormSubmit = async event => {
     event.preventDefault();
-
+    
+    // console.log(formState);
     try {
-      const { data } = await login({
+      const { data } = await api.login({
+        
         variables: { ...formState }
       });
     
@@ -38,7 +37,7 @@ const Login = (props) => {
         <div className='card'>
           <h4 className='card-header'>Login</h4>
           <div className='card-body'>
-            <form onSubmit={handleFormSubmit}>
+            <form onSubmit={loginFormSubmit}>
               <input
                 className='form-input'
                 placeholder='Your email'
