@@ -1,37 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import Home from './pages/Home';
 import Store from './pages/Store';
+import SingleGame from './pages/SingleGame';
 import Dashboard from './pages/Dashboard'
 
 
 function App() {
-  const [currentPage, handlePageChange] = useState('Home');
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'Homepage':
-        return <Home />;
-      case 'Store':
-        return <Store />;
-      case 'My Dashboard':
-        return <Dashboard />;
-      default:
-        return <Home />;
-    }
-  };
-
   return (
-    <div>
-      <nav>
-        {/* Pass the state value and the setter as props to navTabs */}
-        <Navigation currentPage={currentPage} handlePageChange={handlePageChange} />
-        {/* Call the renderPage function passing in the currentPage */}
-      </nav>
-      <div>{renderPage(currentPage)}</div>
-      <Footer></Footer>
-    </div>
+    <Router>
+      <div>
+        <Navigation />
+        <div className="container">
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/homepage" component={Home} />
+            <Route exact path="/store" component={Store} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/game/:id" component={SingleGame} />
+          </Switch>
+        </div>
+        <Footer></Footer>
+      </div>
+    </Router>
   );
 }
 
