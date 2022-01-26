@@ -1,8 +1,27 @@
 import React from 'react';
 import Discussion from '../components/Discussion';
+import { useParams } from 'react-router-dom';
 
-function VideoGame(props) {
-    const { currentGame } = props;
+const VideoGame = () => {
+    const { id: gameId } = useParams();
+
+    const games = [
+        { _id: "5432", name: 'Skyrim', description: 'Open world medieval role playing game' },
+        { _id: "4567", name: 'Mario Kart', description: 'Action packed racing game' },
+        { _id: "9876", name: 'Soul Calliber', description: 'Button mashing fighter' },
+        { _id: "1234", name: 'Animal Crossing', description: 'Cute farm animals' }
+    ];
+
+    console.log(gameId);
+    let currentGame = games[0];
+
+    for (let i = 0; i < games.length; i++) {
+        console.log(games[i]._id);
+        if (games[i]._id === gameId) {
+            currentGame = games[i];
+        }
+    }
+
     return (
         <section className='game'>
             <h1>{currentGame.name}</h1>
