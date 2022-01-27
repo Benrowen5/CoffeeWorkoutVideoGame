@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Auth from '../utils/auth';
 import api from '../utils/api';
 
-const Login = (props) => {
+const Login = () => {
   const [formState, setFormState] = useState({ email: '', password: '' });
 
   const handleChange = (event) => {
