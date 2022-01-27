@@ -4,7 +4,9 @@ const GameSchema = new Schema(
         title: {
             type: String,
             required: true,
-            trim: true
+            trim: true,
+            unique: true
+
         },
         genre: {
             type: String,
@@ -14,8 +16,7 @@ const GameSchema = new Schema(
         description: {
             type: String,
             required: true,
-            trim: true,
-            maxlength: 256
+            trim: true
         },
         image: {
             type: String,
