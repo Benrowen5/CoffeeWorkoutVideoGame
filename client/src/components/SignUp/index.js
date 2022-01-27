@@ -30,11 +30,12 @@ const SignupForm = () => {
     try {
       const response = await api.addUser(userFormData);
       console.log(response);
-      if (!response.ok) {
+      if (response.status < 200 || response.status > 299 ) {
         throw new Error('something went wrong!');
       }
 
-      const { token, user } = await response.json();
+      let user = response.data.dbUser;
+      let token = response.data.token;
       console.log(user);
       Auth.login(token);
     } catch (err) {

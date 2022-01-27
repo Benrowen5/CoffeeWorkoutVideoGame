@@ -43,7 +43,11 @@ UserSchema.pre('save', async function (next) {
     }
   
     next();
-  });
+});
+
+UserSchema.methods.isCorrectPassword = async function (password) {
+    return bcrypt.compare(password, this.password);
+};
 
 // create the User model using the UserSchema
 const User = model('User', UserSchema);

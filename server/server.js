@@ -1,4 +1,5 @@
 // const { authMiddleware } = require('./utils/auth');
+const bodyParser = require('body-parser');
 const express = require('express');
 const path = require('path');
 
@@ -10,6 +11,9 @@ const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(require('./routes'));
 

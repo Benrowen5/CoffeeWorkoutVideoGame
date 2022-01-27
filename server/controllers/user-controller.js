@@ -34,9 +34,11 @@ const userController = {
             .catch(err => res.status(400).json(err));
     },
     loginUser({ body }, res) {
+        
         User.findOne({ username: body.username })
             .then(dbUser => {
                 // check for valid username
+               
                 if(!dbUser) {
                     return res.status(400).json({ message: 'Username not found.'});
                 }
@@ -45,8 +47,9 @@ const userController = {
                 if(!correctPw) {
                     return res.status(400).json({ message: 'Incorrect password.'});
                 }
-                const token = signToken(user);
-                res.json({ token, user });
+                
+                const token = signToken(dbUser);
+                res.json({ token, dbUser });
             })
             .catch(err => res.status(400).json(err));
     }

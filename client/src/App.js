@@ -7,7 +7,7 @@ import Store from './pages/Store';
 import SingleGame from './pages/SingleGame';
 import Dashboard from './pages/Dashboard';
 import SignupForm from './components/SignUp';
-import LoginForm from './pages/Login'
+import LoginForm from './components/Login'
 
 
 function App() {
