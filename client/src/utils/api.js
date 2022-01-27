@@ -26,7 +26,7 @@ export default {
     },
     // ||||  need login route  ||||
     login: function (userReq) {
-        return axios.post("ROUTE", userReq);
+        return axios.post("/api/users/login", userReq);
     },
 
     // GAMES
