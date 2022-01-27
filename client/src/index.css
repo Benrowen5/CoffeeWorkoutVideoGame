@@ -94,6 +94,10 @@ a {
   list-style: none;
 }
 
+.product {
+  margin: 10px;
+}
+
 .footer {
   background-color: var(--middle);
   color: var(--off-white);
