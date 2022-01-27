@@ -15,7 +15,10 @@ const GameSchema = new Schema(
             type: String,
             required: true,
             trim: true,
-            maxlength: 128
+            maxlength: 256
+        },
+        image: {
+            type: String,
         },
         comments: [
             {
