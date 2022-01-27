@@ -5,7 +5,9 @@ import Footer from './components/Footer'
 import Home from './pages/Home';
 import Store from './pages/Store';
 import SingleGame from './pages/SingleGame';
-import Dashboard from './pages/Dashboard'
+import Dashboard from './pages/Dashboard';
+import SignupForm from './components/SignUp';
+import LoginForm from './pages/Login'
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/game/:id" component={SingleGame} />
           </Switch>
+          <LoginForm />
+          <SignupForm />
         </div>
         <Footer></Footer>
       </div>

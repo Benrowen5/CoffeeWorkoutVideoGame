@@ -24,9 +24,10 @@ export default {
     addUser: function (userData) {
         return axios.post("/api/users/", userData);
     },
-    // ||||  need login route  ||||
-    login: function (userReq) {
-        return axios.post("ROUTE", userReq);
+    loginUser: function (userReq) {
+        console.log(userReq);
+        return axios.post("/api/users/login/", userReq);
+
     },
 
     // GAMES

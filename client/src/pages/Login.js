@@ -4,7 +4,7 @@ import Auth from '../utils/auth';
 import api from '../utils/api';
 
 const Login = (props) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = useState({ username: '', password: '' });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -20,7 +20,7 @@ const Login = (props) => {
     
     // console.log(formState);
     try {
-      const { data } = await api.login({
+      const { data } = await api.loginUser({
         
         variables: { ...formState }
       });
@@ -40,11 +40,11 @@ const Login = (props) => {
             <form onSubmit={loginFormSubmit}>
               <input
                 className='form-input'
-                placeholder='Your email'
-                name='email'
-                type='email'
-                id='email'
-                value={formState.email}
+                placeholder='Your username'
+                name='username'
+                type='username'
+                id='username'
+                value={formState.username}
                 onChange={handleChange}
               />
               <input
@@ -60,7 +60,7 @@ const Login = (props) => {
                 Submit
               </button>
             </form>
-            {error && <div>Login failed</div>}
+            
           </div>
         </div>
       </div>
