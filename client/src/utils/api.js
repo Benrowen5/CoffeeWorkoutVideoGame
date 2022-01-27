@@ -25,7 +25,7 @@ export default {
         return axios.post("/api/users/", userData);
     },
     // ||||  need login route  ||||
-    login: function (userReq) {
+    loginUser: function (userReq) {
         return axios.post("/api/users/login", userReq);
     },
 

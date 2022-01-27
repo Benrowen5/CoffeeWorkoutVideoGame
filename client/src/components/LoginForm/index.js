@@ -1,14 +1,12 @@
-//WAIT TIL SERVER READY
 import React, { useState } from 'react';
-import Auth from '../utils/auth';
-import api from '../utils/api';
+import Auth from '../../utils/auth';
+import api from '../../utils/api';
 
-const Login = () => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+const LoginForm = (props) => {
+  const [formState, setFormState] = useState({ username: '', password: '' });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
     setFormState({
       ...formState,
       [name]: value,
@@ -20,15 +18,25 @@ const Login = () => {
     
     // console.log(formState);
     try {
-      const { data } = await api.login({
+        const response = await api.loginUser(formState);
+        console.log(response);
         
-        variables: { ...formState }
-      });
-    
-      Auth.login(data.login.token);
-    } catch (e) {
-      console.error(e);
+        if (response.status < 200 || response.status > 299 ) {
+          throw new Error('something went wrong!');
+        }
+  
+        let user = response.data.dbUser;
+        let token = response.data.token;
+        console.log(user);
+        Auth.login(token);
+    } catch (err) {
+        console.error(err);
     }
+  
+    setFormState({
+        username: '',
+        password: '',
+    });
   };
 
   return (
@@ -40,11 +48,11 @@ const Login = () => {
             <form onSubmit={loginFormSubmit}>
               <input
                 className='form-input'
-                placeholder='Your email'
-                name='email'
-                type='email'
-                id='email'
-                value={formState.email}
+                placeholder='Your username'
+                name='username'
+                type='username'
+                id='username'
+                value={formState.username}
                 onChange={handleChange}
               />
               <input
@@ -60,7 +68,7 @@ const Login = () => {
                 Submit
               </button>
             </form>
-            {error && <div>Login failed</div>}
+            
           </div>
         </div>
       </div>
@@ -68,4 +76,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginForm;
