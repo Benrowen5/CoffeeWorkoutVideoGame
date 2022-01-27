@@ -94,6 +94,12 @@ a {
   list-style: none;
 }
 
+button {
+  color: var(--off-white);
+  background-color: var(--mid-dark);
+  border: none;
+}
+
 .product {
   margin: 10px;
 }

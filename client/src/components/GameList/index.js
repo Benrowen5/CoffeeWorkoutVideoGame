@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const GameList = (props) => {
+const GameList = () => {
     //Test data
     const [games] = useState([
         { _id: "5432", name: 'Skyrim', description: 'Open world medieval role playing game' },
