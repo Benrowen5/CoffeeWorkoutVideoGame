@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+// import { addComment } from '../../utils/api';
+import Button from '@mui/material/Button';
 
 const CommentForm = () => {
+  const { id: gameId } = useParams();
+  const [commentText, setText] = useState('');
+
   const handleChange = (event) => {
-    // if (event.target.value.length <= 280) {
-    //   setText(event.target.value);
-    //   setCharacterCount(event.target.value.length);
-    // }
+      setText(event.target.value);
   };
 
   // submit form
   const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      // await addComment({
+      //   variables: { commentText },
+      // });
+
+      // clear form value
+      setText('');
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (

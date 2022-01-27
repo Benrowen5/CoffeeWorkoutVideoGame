@@ -99,7 +99,7 @@ const VideoGame = () => {
                 <CommentForm></CommentForm>
                 <Discussion></Discussion>
             </div>
-            <GameList gameId={gameId}></GameList>
+            <GameList></GameList>
         </section>
 
     );

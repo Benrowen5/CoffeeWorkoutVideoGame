@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import CommentForm from '../CommentForm';
 
 const Discussion = () => {
     const { id: gameId } = useParams();
@@ -100,10 +101,13 @@ const Discussion = () => {
                         <div>
                             {comment.commentText}
                             {comment.replies.map((reply) => (
-                            <li>
+                            <div>
+                                <li>
                                 {reply.replyBody}
-                            </li>
+                                </li>
+                            </div>
                             ))}
+                            <CommentForm></CommentForm>
                         </div>
                     </li>
                 ))}
