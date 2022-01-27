@@ -1,5 +1,7 @@
 import React from 'react';
+import GameList from '../components/GameList';
 import Discussion from '../components/Discussion';
+import CommentForm from '../components/CommentForm';
 import { useParams } from 'react-router-dom';
 
 const VideoGame = () => {
@@ -23,11 +25,16 @@ const VideoGame = () => {
     }
 
     return (
-        <section className='game'>
-            <h1>{currentGame.name}</h1>
-            <p>{currentGame.description}</p>
-            <Discussion></Discussion>
+        <section className='flex-row'>
+            <div className='game'>
+                <h1>{currentGame.name}</h1>
+                <p>{currentGame.description}</p>
+                <CommentForm></CommentForm>
+                <Discussion></Discussion>
+            </div>
+            <GameList></GameList>
         </section>
+
     );
 }
 
