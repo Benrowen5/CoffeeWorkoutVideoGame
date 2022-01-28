@@ -1,5 +1,5 @@
 const { Game } = require('../models');
-const { populate } = require('../models/Comment');
+
 const gameController = {
     // get all games
     getAllGames(req, res) {
@@ -14,13 +14,23 @@ const gameController = {
             })
     },
 
-    // Get an one game 
-    getGameById({params}, res) {
-        Game.findOne({ _id: params.GameId })
-            .then(dbGameData => res.json(dbGameData))
+    // Get one game 
+    getGameById({ params }, res) {
+        Game.findOne({ _id: params.gameId })
+            .populate({
+                path: 'comments',
+                select: '-__V'
+            })
+            .then(dbGameData => {
+                if(!dbGameData) {
+                    res.status(404).json({ message: 'No game found with this ID.'});
+                    return;
+                }
+                res.json(dbGameData);
+            })
             .catch(err => res.status(400).json(err));
     },
-
+    // create new game
     createGame({body}, res) {
         Game.create(body)
             .then(dbGameData => res.json(dbGameData))
