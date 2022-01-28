@@ -7,7 +7,7 @@ router.route('/')
     .get(getAllGames)
     .post(createGame);
 
-    router.route('/:gameId')
-        .get(getGameById);
+router.route('/:gameId')
+    .get(getGameById);
 
 module.exports = router;

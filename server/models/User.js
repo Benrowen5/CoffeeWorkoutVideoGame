@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-
+const { Game } = require('./Game');
 const UserSchema = new Schema(
     {
         username: {
@@ -19,6 +19,12 @@ const UserSchema = new Schema(
             required: true,
             minlength: 5
         },
+        favorites: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Game'
+            }
+        ],
         comments: [
          {
             type: Schema.Types.ObjectId,

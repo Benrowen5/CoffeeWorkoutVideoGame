@@ -37,6 +37,11 @@ const GameSchema = new Schema(
     }  
 );
 
+// Get number of favorites a game has
+GameSchema.virtual('commentCount').get(function() {
+    return this.comments.length;
+});
+
 // create Game model using gameSchema
 const Game = model('Game', GameSchema);
 
