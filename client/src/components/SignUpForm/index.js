@@ -19,15 +19,12 @@ const SignupForm = () => {
     // console.log(formState);
     try {
         const response = await api.addUser(formState);
-        console.log(response);
         
         if (response.status < 200 || response.status > 299 ) {
         throw new Error('something went wrong!');
         }
 
-        let user = response.data.dbUser;
         let token = response.data.token;
-        console.log(user);
         Auth.login(token);
     } catch (err) {
         console.error(err);
@@ -44,7 +41,7 @@ const SignupForm = () => {
     <main className='flex-row justify-center mb-4'>
       <div className='col-12 col-md-6'>
         <div className='card'>
-          <h4 className='card-header'>Login</h4>
+          <h4 className='card-header'>Signup</h4>
           <div className='card-body'>
             <form onSubmit={signUpFormSubmit}>
               <input

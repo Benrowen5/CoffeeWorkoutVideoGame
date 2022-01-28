@@ -25,9 +25,7 @@ const LoginForm = (props) => {
           throw new Error('something went wrong!');
         }
   
-        let user = response.data.dbUser;
         let token = response.data.token;
-        console.log(user);
         Auth.login(token);
     } catch (err) {
         console.error(err);
