@@ -33,22 +33,19 @@ const userController = {
             .then(dbUserData => res.json(dbUserData))
             .catch(err => res.status(400).json(err));
     },
-    loginUser({ body }, res) {
-        User.findOne({ username: body.username })
-            .then(dbUser => {
-                // check for valid username
-                if(!dbUser) {
-                    return res.status(400).json({ message: 'Username not found.'});
-                }
-                // check for correct password
-                const correctPw = dbUser.isCorrectPassword(body.password);
-                if(!correctPw) {
-                    return res.status(400).json({ message: 'Incorrect password.'});
-                }
-                const token = signToken(dbUser);
-                res.json({ token, dbUser });
-            })
-            .catch(err => res.status(400).json(err));
+    async loginUser({ body }, res) {
+        const user = await User.findOne({ $or: [{ username: body.username }, { email: body.email }] });
+        if (!user) {
+        return res.status(400).json({ message: "Can't find this user" });
+        }
+
+        const correctPw = await user.isCorrectPassword(body.password);
+
+        if (!correctPw) {
+        return res.status(400).json({ message: 'Wrong password!' });
+        }
+        const token = signToken(user);
+        res.json({ token, user });
     }
 };
 
