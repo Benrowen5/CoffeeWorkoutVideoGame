@@ -9,6 +9,7 @@ const VideoGame = () => {
     const { id: gameId } = useParams();
 
     const [singleGameData, setSingleGameData] = useState([]);
+
     useEffect(()=>{
         api.getGame(gameId).then(res=>{
             
@@ -17,8 +18,7 @@ const VideoGame = () => {
             }
             setSingleGameData(res.data)
         })
-        
-    },[]);
+    },[gameId]);
 
     return (
         <section className='flex-row'>
