@@ -83,7 +83,7 @@ const Discussion = () => {
     let currentGame = games[0];
 
     for (let i = 0; i < games.length; i++) {
-        console.log(games[i]._id);
+        //console.log(games[i]._id);
         if (games[i]._id === gameId) {
             currentGame = games[i];
         }
