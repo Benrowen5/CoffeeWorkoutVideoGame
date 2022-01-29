@@ -40,7 +40,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/homepage" component={Home} />
             <Route exact path="/store" component={Store} />
-            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/dashboard" component={()=><Dashboard username={user.username} id={user._id}/>} />
             <Route exact path="/login" component={LoginForm} />
             <Route exact path="/signup" component={SignUpForm} />
             <Route exact path="/game/:id" component={()=><SingleGame username={user.username} id={user._id}/>} />

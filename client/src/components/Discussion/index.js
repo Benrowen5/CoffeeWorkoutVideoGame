@@ -90,7 +90,7 @@ const Discussion = (props) => {
     // }
 
     //after logging in, use console log for correct keys
-    console.log(props);
+    
     return (
         <div className='discussion'>
             <h3>
@@ -106,7 +106,7 @@ const Discussion = (props) => {
                             {comment.replies?.map((reply) => (
                             <div>
                                 <li>
-                                {reply.replyBody}
+                                    {reply.replyBody}
                                 </li>
                             </div>
                             ))}

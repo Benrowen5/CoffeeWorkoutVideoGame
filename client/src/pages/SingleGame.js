@@ -28,7 +28,7 @@ const VideoGame = (props) => {
                 <p>{singleGameData.description}</p>
                 <img src={singleGameData.image} alt={singleGameData.title} style={{height: "250px"}}/>
                 <div>
-                    <button type="button" class="fav-btn">Favorite</button>
+                    <button type="button" className="fav-btn">Favorite</button>
                 </div>
                 <CommentForm username={props.username}/>
                 <Discussion 

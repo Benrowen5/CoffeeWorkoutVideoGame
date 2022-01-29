@@ -4,7 +4,8 @@ import auth from '../../utils/auth';
 
 //use props.username
 function Navigation(props) {
-  const tabs = ['Homepage', 'Store', 'Dashboard', 'Login']
+  const tabsLoggedOut = ['Homepage', 'Store', 'Login']
+  const tabsLoggedIn = ['Homepage', 'Store', 'Dashboard']
   return (
     <header className="nav flex-row">
       <h1>
@@ -13,16 +14,26 @@ function Navigation(props) {
         </a>
       </h1>
       <nav>
-        <ul className="nav nav-tabs flex-row">
-          {tabs.map(tab => (
-            <li className="nav-item" key={tab}>
-              <Link to={'/' + tab.toLowerCase()}>{tab}</Link>
-            </li>
-          ))}
-        </ul>
+        
         {auth.loggedIn() ? (
-          <><p>Hello, {props.username}</p></>
-        ):(<></>)}
+          <>
+          <ul className="nav nav-tabs flex-row">
+            {tabsLoggedIn.map(tab => (
+              <li className="nav-item" key={tab}>
+                <Link to={'/' + tab.toLowerCase()}>{tab}</Link>
+              </li>
+            ))}<li><Link to={'/'} onClick={auth.logout}>Logout</Link></li>
+          </ul><p>Hello, {props.username}</p>
+        </>
+        ):(<>
+          <ul className="nav nav-tabs flex-row">
+            {tabsLoggedOut.map(tab => (
+              <li className="nav-item" key={tab}>
+                <Link to={'/' + tab.toLowerCase()}>{tab}</Link>
+              </li>
+            ))}
+          </ul>
+        </>)}
       </nav>
     </header>
   );
