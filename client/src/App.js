@@ -15,10 +15,8 @@ import Dashboard from './pages/Dashboard'
 function App() {
   const [user, setUser] = useState('');
   const token = auth.getToken();
-  // if (!token) {
-  //   let token = null;
-  // }
   useEffect(() => {
+    if (token){
     (
         async() => {
             // const check = auth.isTokenExpired(token);
@@ -30,7 +28,8 @@ function App() {
             setUser(res.data);
         }
     )()
-  },[token]);
+    
+  }},[token]);
 
   return (
     <Router>
