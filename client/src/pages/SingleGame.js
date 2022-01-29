@@ -31,7 +31,9 @@ const VideoGame = (props) => {
                     <button type="button" class="fav-btn">Favorite</button>
                 </div>
                 <CommentForm username={props.username}/>
-                <Discussion username={props.username}/>
+                <Discussion 
+                username={props.username} 
+                comments={singleGameData.comments}/>
             </div>
             <GameList></GameList>
         </section>
