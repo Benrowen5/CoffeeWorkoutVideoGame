@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import api from '../../utils/api';
 import Auth from '../../utils/auth';
+import { Link } from 'react-router-dom';
 
 const SignupForm = () => {
     const [formState, setFormState] = useState({ username: '', email: '', password: '' });
@@ -75,7 +76,7 @@ const SignupForm = () => {
                 Submit
               </button>
             </form>
-            
+            <Link className='internal-link' to='/login'>Login</Link>
           </div>
         </div>
       </div>

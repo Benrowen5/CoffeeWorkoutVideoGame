@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Navigation(props) {
-  const tabs = ['Homepage', 'Store', 'Dashboard']
+  const tabs = ['Homepage', 'Store', 'Dashboard', 'Login']
   return (
     <header className="nav flex-row">
       <h1>

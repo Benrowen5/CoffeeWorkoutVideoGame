@@ -27,6 +27,9 @@ const VideoGame = () => {
                 <h3>{singleGameData.genre}</h3>
                 <p>{singleGameData.description}</p>
                 <img src={singleGameData.image} alt={singleGameData.title} style={{height: "250px"}}/>
+                <div>
+                    <button type="button" class="fav-btn">Favorite</button>
+                </div>
                 <CommentForm></CommentForm>
                 <Discussion></Discussion>
             </div>

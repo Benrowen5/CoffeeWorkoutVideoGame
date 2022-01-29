@@ -18,6 +18,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.internal-link {
+  color: var(--darkest);
+  padding: 10px;
+}
+
+.fav-btn {
+  background-color: #197d0f;
+  transition: background-color .1s;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
