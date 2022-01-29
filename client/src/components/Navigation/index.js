@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import auth from '../../utils/auth';
 
+//use props.username
 function Navigation(props) {
   const tabs = ['Homepage', 'Store', 'Dashboard', 'Login']
   return (
@@ -18,6 +20,9 @@ function Navigation(props) {
             </li>
           ))}
         </ul>
+        {auth.loggedIn() ? (
+          <><p>Hello, {props.username}</p></>
+        ):(<></>)}
       </nav>
     </header>
   );

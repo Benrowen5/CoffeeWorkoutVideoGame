@@ -5,7 +5,7 @@ import CommentForm from '../components/CommentForm';
 import { useParams } from 'react-router-dom';
 import api from '../utils/api';
 
-const VideoGame = () => {
+const VideoGame = (props) => {
     const { id: gameId } = useParams();
 
     const [singleGameData, setSingleGameData] = useState([]);
@@ -30,8 +30,8 @@ const VideoGame = () => {
                 <div>
                     <button type="button" class="fav-btn">Favorite</button>
                 </div>
-                <CommentForm></CommentForm>
-                <Discussion></Discussion>
+                <CommentForm username={props.username}/>
+                <Discussion username={props.username}/>
             </div>
             <GameList></GameList>
         </section>

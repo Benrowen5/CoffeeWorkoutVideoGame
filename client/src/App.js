@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import auth from './utils/auth';
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import Home from './pages/Home';
@@ -12,10 +13,29 @@ import Dashboard from './pages/Dashboard'
 
 
 function App() {
+  const [user, setUser] = useState('');
+  const token = auth.getToken();
+  // if (!token) {
+  //   let token = null;
+  // }
+  useEffect(() => {
+    (
+        async() => {
+            // const check = auth.isTokenExpired(token);
+            // if (check === false) {
+            //   // auth.logout();
+            // }
+            const res = await auth.getProfile(token);
+            // console.log(res);
+            setUser(res.data);
+        }
+    )()
+  },[token]);
+
   return (
     <Router>
       <div>
-        <Navigation />
+        <Navigation username={user.username}/>
         <div className="container">
           <Switch>
             <Route exact path="/" component={Home} />
@@ -24,7 +44,7 @@ function App() {
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/login" component={LoginForm} />
             <Route exact path="/signup" component={SignUpForm} />
-            <Route exact path="/game/:id" component={SingleGame} />
+            <Route exact path="/game/:id" component={()=><SingleGame username={user.username} id={user._id}/>} />
           </Switch>
         </div>
         <Footer></Footer>

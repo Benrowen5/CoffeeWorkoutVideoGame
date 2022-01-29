@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 // import { addComment } from '../../utils/api';
 
-const CommentForm = () => {
+const CommentForm = (props) => {
   const { id: gameId } = useParams();
   const [commentText, setText] = useState('');
 
