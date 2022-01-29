@@ -39,12 +39,10 @@ const SignupForm = () => {
   };
 
   return (
-    <main className='flex-row justify-center mb-4'>
-      <div className='col-12 col-md-6'>
-        <div className='card'>
-          <h4 className='card-header'>Signup</h4>
-          <div className='card-body'>
-            <form onSubmit={signUpFormSubmit}>
+    <section>
+          <h1>Sign Up</h1>
+          <div>
+            <form className='signup-form' onSubmit={signUpFormSubmit}>
               <input
                 className='form-input'
                 placeholder='Your username'
@@ -72,15 +70,13 @@ const SignupForm = () => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button className='btn d-block w-100' type='submit'>
+              <button type='submit'>
                 Submit
               </button>
             </form>
-            <Link className='internal-link' to='/login'>Login</Link>
+            <Link className='login-link' to='/login'>Login</Link>
           </div>
-        </div>
-      </div>
-    </main>
+    </section>
   );
 };
 

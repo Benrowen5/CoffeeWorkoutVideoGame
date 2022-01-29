@@ -18,14 +18,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.internal-link {
-  color: var(--darkest);
-  padding: 10px;
-}
-
 .fav-btn {
-  background-color: #197d0f;
-  transition: background-color .1s;
+  background-color: var(--middle);
+  margin: 10px 0;
 }
 
 code {
@@ -71,6 +66,8 @@ a {
   width: 75%;
 }
 
+
+
 .gameList {
   border: 1px solid var(--darkest);
   margin: 10px;
@@ -110,8 +107,47 @@ button {
   border: none;
 }
 
+.store {
+  border: 1px solid var(--darkest);
+  margin: 10px;
+  padding: 10px;
+  width: 75%;
+}
+
 .product {
   margin: 10px;
+}
+
+.login-form,
+.signup-form {
+    border: 1px solid var(--mid-light);
+    padding: 30px 30px 0 30px;;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 20%;
+    font-size: 20px;
+    margin: 10px;
+}
+
+.login-form input,
+.signup-form input {
+    justify-content: center;
+    width: 100%;
+    line-height: 200%;
+    margin: 5px 0 10px 0;
+}
+
+.login-form button,
+.signup-form button {
+    justify-content: center;
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.login-link,
+.signup-link {
+  color: var(--darkest);
 }
 
 .footer {

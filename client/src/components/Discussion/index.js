@@ -107,7 +107,7 @@ const Discussion = () => {
                                 </li>
                             </div>
                             ))}
-                            <CommentForm></CommentForm>
+                            {/* <CommentForm></CommentForm> */}
                         </div>
                     </li>
                 ))}
