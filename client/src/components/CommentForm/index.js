@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 // import { addComment } from '../../utils/api';
-import Button from '@mui/material/Button';
 
 const CommentForm = () => {
   const { id: gameId } = useParams();
