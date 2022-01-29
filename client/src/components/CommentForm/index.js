@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-// import { addComment } from '../../utils/api';
+import api from '../../utils/api';
 
 const CommentForm = (props) => {
   const { id: gameId } = useParams();
-  const [commentText, setText] = useState('');
-
+  const [commentText, setText] = useState({commentBody: '', commentBy: props.username});
   const handleChange = (event) => {
-      setText(event.target.value);
+    const { name, value } = event.target;
+    setText({
+      ...commentText,
+      [name]: value,
+    });
   };
 
   // submit form
@@ -15,28 +18,34 @@ const CommentForm = (props) => {
     event.preventDefault();
 
     try {
-      // await addComment({
-      //   variables: { commentText },
-      // });
-
-      // clear form value
-      setText('');
+      console.log(commentText);
+      const response = await api.addComment(gameId, commentText);
+      
+      if (response.status < 200 || response.status > 299 ) {
+        throw new Error('something went wrong!');
+      }
     } catch (e) {
       console.error(e);
     }
+    setText({
+      commentBody: '',
+      commentBy: props.username
+  });
   };
 
   return (
     <div>
       <form
         className="flex-row"
-        // onSubmit={handleFormSubmit}
+        onSubmit={handleFormSubmit}
       >
         <textarea
+          name='commentBody'
+          id='commentBody'
           placeholder="comment..."
-          //value={commentText}
+          value={commentText.commentBody}
           className="form-input col-12 col-md-9"
-          //onChange={handleChange}
+          onChange={handleChange}
         ></textarea>
         <button className="btn col-12 col-md-3" type="submit">
           Submit

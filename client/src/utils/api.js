@@ -42,8 +42,8 @@ export default {
     },
 
     //COMMENTS
-    addComment: function (gameId) {
-        return axios.post("/api/comments/"+gameId);
+    addComment: function (gameId, commentBody) {
+        return axios.post("/api/comments/"+gameId, commentBody);
     },
     getComment: function (commentId) {
         return axios.get("/api/comments/"+commentId);
