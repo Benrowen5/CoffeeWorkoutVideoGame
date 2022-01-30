@@ -35,16 +35,19 @@ const userController = {
     // get single user
     getUserById({params}, res) {
         User.findOne({ _id: params.id })
-            .populate({
-                path: 'comments',
-                select: '-__V'
+            .populate({path: 'comments', select: '-__V'})
+            .populate({path: 'favorites', select: '-__V'})
+            .then(dbUserData => {
+                if(!dbUserData) {
+                    res.status(404).json({ message: "No user found with that id." });
+                    return;
+                }
+                res.json(dbUserData);
             })
-            .populate({
-                path: 'favorites',
-                select: '-__V'
-            })
-            .then(dbUserData => res.json(dbUserData))
-            .catch(err => res.status(400).json(err));
+            .catch(err => {
+                console.log(err);
+                res.status(400).json(err);
+            });
     },
     async loginUser({ body }, res) {
         const user = await User.findOne({ $or: [{ username: body.username }, { email: body.email }] });
@@ -66,21 +69,13 @@ const userController = {
             { $push: { favorites: params.gameId } },
             { new: true }
         )
-            .then(dbUserData => {
-                if(!dbUserData) {
-                    res.status(404).json({ message: 'No game found with this ID.'});
-                    return;
-                }
-                res.json(dbUserData);
+            .then(({ _id }) => {
+                return Game.findOneAndUpdate(
+                    { _id: params.gameId },
+                    { $push: { favoriteBy: _id } },
+                    { new: true }
+                )
             })
-            .catch(err => res.status(400).json(err));
-    },
-    deleteFavorite({ params }, res) {
-        User.findOneAndUpdate(
-            { _id: params.userId },
-            { $pull: { favorites: params.gameId } },
-            { new: true }
-        )
             .then(dbUserData => {
                 if(!dbUserData) {
                     res.status(404).json({ message: 'No game found with this ID.'});
@@ -90,7 +85,32 @@ const userController = {
             })
             .catch(err => {
                 console.log(err);
-                res.status(400).json(err)
+                res.status(400).json(err);
+            })
+    },
+    deleteFavorite({ params }, res) {
+        User.findOneAndUpdate(
+            { _id: params.userId },
+            { $pull: { favorites: params.gameId } },
+            { new: true }
+        )
+            .then(({ _id }) => {
+                return Game.findOneAndUpdate(
+                    { _id: params.gameId },
+                    { $pull: { favoriteBy: _id } },
+                    { new: true }
+                )
+            })
+            .then(dbUserData => {
+                if(!dbUserData) {
+                    res.status(404).json({ message: 'No game found with this ID.'});
+                    return;
+                }
+                res.json(dbUserData);
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(400).json(err);
             })
     }
 };

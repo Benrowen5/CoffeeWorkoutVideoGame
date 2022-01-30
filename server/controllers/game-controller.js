@@ -17,10 +17,7 @@ const gameController = {
     // Get one game 
     getGameById({ params }, res) {
         Game.findOne({ _id: params.gameId })
-            .populate({
-                path: 'comments',
-                select: '-__V'
-            })
+            .populate({path: 'comments', select: '-__V'})
             .then(dbGameData => {
                 if(!dbGameData) {
                     res.status(404).json({ message: 'No game found with this ID.'});
@@ -28,7 +25,10 @@ const gameController = {
                 }
                 res.json(dbGameData);
             })
-            .catch(err => res.status(400).json(err));
+            .catch(err => {
+                console.log(err);
+                res.status(400).json(err);
+            })
     },
     // create new game
     createGame({body}, res) {

@@ -26,6 +26,12 @@ const GameSchema = new Schema(
                 type: Schema.Types.ObjectId,
                 ref: 'Comment'
             }
+        ],
+        favoriteBy: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User',
+            }
         ]
     },
     {
@@ -37,9 +43,14 @@ const GameSchema = new Schema(
     }  
 );
 
-// Get number of favorites a game has
+// Get number of comments a game has
 GameSchema.virtual('commentCount').get(function() {
     return this.comments.length;
+});
+
+// Get number of favorites a game has
+GameSchema.virtual('FavoriteCount').get(function() {
+    return this.favoriteBy.length;
 });
 
 // create Game model using gameSchema
