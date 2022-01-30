@@ -27,6 +27,9 @@ export default {
     loginUser: function (userReq) {
         return axios.post("/api/users/login", userReq);
     },
+    addFavorite: function (userId, gameId) {
+        return axios.post('/api/users/'+userId+'/favorites/'+gameId);
+    },
 
     // GAMES
     getAllGames: function () {

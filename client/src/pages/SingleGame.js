@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import GameList from '../components/GameList';
-import Discussion from '../components/Discussion';
 import CommentForm from '../components/CommentForm';
 import { useParams } from 'react-router-dom';
 import api from '../utils/api';
@@ -10,15 +9,27 @@ const VideoGame = (props) => {
 
     const [singleGameData, setSingleGameData] = useState([]);
 
-    useEffect(()=>{
-        api.getGame(gameId).then(res=>{
-            
-            if (res.status < 200 || res.status > 299 ) {
+    useEffect(() => {
+        api.getGame(gameId).then(res => {
+
+            if (res.status < 200 || res.status > 299) {
                 throw new Error('something went wrong!');
             }
             setSingleGameData(res.data)
         })
-    },[gameId]);
+    }, [gameId]);
+
+    function favoriteGame() {
+        try {
+            const response = api.addFavorite(props.id, gameId);
+            
+            if (response.status < 200 || response.status > 299 ) {
+                throw new Error('something went wrong!');
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    }
 
     return (
         <section className='flex-row'>
@@ -26,14 +37,34 @@ const VideoGame = (props) => {
                 <h1>{singleGameData.title}</h1>
                 <h3>{singleGameData.genre}</h3>
                 <p>{singleGameData.description}</p>
-                <img src={singleGameData.image} alt={singleGameData.title} style={{height: "250px"}}/>
+                <img src={singleGameData.image} alt={singleGameData.title} style={{ height: "250px" }} />
                 <div>
-                    <button type="button" className="fav-btn">Favorite</button>
+                    <button type="button" className="fav-btn" onClick={favoriteGame}>Favorite</button>
                 </div>
-                <CommentForm username={props.username}/>
-                <Discussion 
-                username={props.username} 
-                comments={singleGameData.comments}/>
+                <CommentForm username={props.username} />
+                <div className='discussion'>
+                    <h3>
+                        Discussion:
+                    </h3>
+                    <ul>
+                        {singleGameData.comments?.map((comment) => (
+                            <li>
+                                {comment.createdAt}
+                                <div>
+                                    {comment.commentBody}
+                                    {comment.commentBy}
+                                    {comment.replies?.map((reply) => (
+                                        <div>
+                                            <li>
+                                                {reply.replyBody}
+                                            </li>
+                                        </div>
+                                    ))}
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
             <GameList></GameList>
         </section>
