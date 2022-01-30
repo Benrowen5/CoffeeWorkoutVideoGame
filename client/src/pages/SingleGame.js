@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import GameList from '../components/GameList';
 import CommentForm from '../components/CommentForm';
+import auth from '../utils/auth';
 import { useParams } from 'react-router-dom';
 import api from '../utils/api';
 
@@ -22,8 +23,8 @@ const VideoGame = (props) => {
     function favoriteGame() {
         try {
             const response = api.addFavorite(props.id, gameId);
-            
-            if (response.status < 200 || response.status > 299 ) {
+
+            if (response.status < 200 || response.status > 299) {
                 throw new Error('something went wrong!');
             }
         } catch (e) {
@@ -38,10 +39,16 @@ const VideoGame = (props) => {
                 <h3>{singleGameData.genre}</h3>
                 <p>{singleGameData.description}</p>
                 <img src={singleGameData.image} alt={singleGameData.title} style={{ height: "250px" }} />
-                <div>
-                    <button type="button" className="fav-btn" onClick={favoriteGame}>Favorite</button>
-                </div>
-                <CommentForm username={props.username} />
+
+                {auth.loggedIn() ? (
+                    <>
+                        <div>
+                            <button type="button" className="fav-btn" onClick={favoriteGame}>Favorite</button>
+                        </div>
+                        <CommentForm username={props.username} />
+                    </>
+                ) : (<></>)}
+                                
                 <div className='discussion'>
                     <h3>
                         Discussion:
