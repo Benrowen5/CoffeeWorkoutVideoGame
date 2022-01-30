@@ -1,5 +1,9 @@
 const { Game } = require('../models');
 const connection = require('../config/connection');
+const { db } = require('../models/Game');
+
+db.dropCollection('games');
+console.log('games collection dropped.');
 
 const gamesData = [
     {
@@ -76,5 +80,3 @@ async function seedGames() {
 }
 
 seedGames();
-
-module.exports = seedGames;

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "watch": "nodemon",
-    "seed": "node seeders/games-seed.js"
+    "seed": "concurrently \"node seeders/games-seed.js\" \"node seeders/users-seed.js\""
   },
   "keywords": [],
   "author": "",
