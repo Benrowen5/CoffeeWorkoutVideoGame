@@ -1,0 +1,40 @@
+.comments{
+    margin: 0 50px 20px 50px;
+}
+
+.date{
+    font-size: 0.7em;
+    color: var(--mid-light);
+    margin: 0;
+    padding: 0;
+}
+
+.comment{
+    padding: 0;
+    margin: 5px 0;
+}
+
+.username{
+    font-size: 0.7em;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+
+.repliesTitle{
+    font-size: 0.9em;
+    color: var(--mid-light);
+    margin: 20px 0 0 0;
+    padding: 0;
+    font-weight: 500;
+}
+
+.replies{
+    margin-left: 50px;
+}
+
+.reply{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0;
+}

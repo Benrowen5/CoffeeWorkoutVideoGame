@@ -1,0 +1,36 @@
+.nav{
+    background: var(--off-white);
+    height: 80px;
+    box-shadow: 0 0 10px var(--mid-dark);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--darkest);
+    padding: 0 50px;
+}
+
+.logo{
+    color: var(--darkest);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.navMenu{
+    display: inline;
+}
+
+.navMenuItem{
+    list-style: none;
+    display: inline;
+    margin-right: 20px;
+}
+
+.navGreeting{
+    display: inline;
+    margin-left: 30px;
+}
+
+.navUsername{
+    font-weight: bold;
+}
