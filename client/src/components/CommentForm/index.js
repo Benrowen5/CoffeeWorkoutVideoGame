@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../../utils/api';
+import styles from './CommentForm.module.css';
 
 const CommentForm = (props) => {
   const { id: gameId } = useParams();
@@ -36,7 +37,7 @@ const CommentForm = (props) => {
   return (
     <div>
       <form
-        className="flex-row"
+        className={styles.form}
         onSubmit={handleFormSubmit}
       >
         <textarea

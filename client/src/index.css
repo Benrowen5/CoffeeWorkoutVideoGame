@@ -18,6 +18,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a{
+  text-decoration: none;
+}
+
+/*
 .fav-btn {
   background-color: var(--middle);
   margin: 10px 0;
@@ -154,4 +159,4 @@ button {
   background-color: var(--middle);
   color: var(--off-white);
   padding: 2px 10px;
-}
+}*/
