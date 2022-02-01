@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import GameList from '../components/GameList';
-import Discussion from '../components/Discussion';
 import CommentForm from '../components/CommentForm';
 import auth from '../utils/auth';
 import { useParams } from 'react-router-dom';
@@ -86,9 +85,6 @@ const VideoGame = (props) => {
                     <button type="button" className={styles.favBtn}>Favorite</button>
                 </div>
                 <CommentForm username={props.username}/>
-                <Discussion
-                    username={props.username}
-                    comments={singleGameData.comments}/>
             </div>
             <GameList></GameList>
         </section>
