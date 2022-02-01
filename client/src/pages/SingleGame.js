@@ -122,17 +122,6 @@ const VideoGame = (props) => {
                         ))}
                     </ul>
                 </div>
-                <img className={styles.cover} src={'https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/header.jpg?t=1642526157'} alt={'Cover'}/>
-                <Title title={'God of War'}/>
-                <p className={styles.desc}>His vengeance against the Gods of Olympus years behind him, Kratos now lives
-                    as a man in the realm of Norse Gods and monsters. It is in this harsh, unforgiving world that he
-                    must fight to survive… and teach his son to do the same.
-                </p>
-                <p className={styles.genre}>Action, Adventure, Mythology, Story-Rich</p>
-                <div>
-                    <button type="button" className={styles.favBtn}>Favorite</button>
-                </div>
-                <CommentForm username={props.username}/>
             </div>
             <GameList></GameList>
         </section>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../../utils/api';
-import Moment from 'moment';
 import styles from './CommentForm.module.css';
 
 // REPLY STRETCHGOAL
