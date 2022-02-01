@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Auth from '../../utils/auth';
 import api from '../../utils/api';
 import { Link } from 'react-router-dom';
+import Title from "../Title/Title";
+import styles from './LoginForm.module.css';
 
 const LoginForm = (props) => {
   const [formState, setFormState] = useState({ username: '', password: '' });
@@ -40,9 +42,9 @@ const LoginForm = (props) => {
 
   return (
     <section>
-          <h1>Login</h1>
+        <Title title={'Login'}/>
           <div>
-            <form className='signup-form' onSubmit={loginFormSubmit}>
+            <form className={styles.form} onSubmit={loginFormSubmit}>
               <input
                 className='form-input'
                 placeholder='Your username'
@@ -65,7 +67,7 @@ const LoginForm = (props) => {
                 Submit
               </button>
             </form>
-            <Link className='signup-link' to='/signup'>Sign Up</Link>
+            <Link className={styles.link} to='/signup'>Sign Up instead</Link>
           </div>
     </section>
   );
