@@ -1,13 +1,10 @@
 // import React, { useState, useEffect } from 'react';
 // import Auth from '../../utils/auth'
 // import api from '../../utils/api';
-<<<<<<< HEAD
-=======
 import styles from './Dashboard.module.css';
 import GameList from "../components/GameList";
 import Title from "../components/Title/Title";
 import Game from "../components/Game/Game";
->>>>>>> b57cf84536dbb95f9e2a22fdcb303bf0117ec895
 
 
 

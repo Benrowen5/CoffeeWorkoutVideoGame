@@ -2,11 +2,8 @@ import React, { useState } from 'react';
 import Auth from '../../utils/auth';
 import api from '../../utils/api';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-=======
 import Title from "../Title/Title";
 import styles from './LoginForm.module.css';
->>>>>>> b57cf84536dbb95f9e2a22fdcb303bf0117ec895
 
 const LoginForm = (props) => {
   const [formState, setFormState] = useState({ username: '', password: '' });
