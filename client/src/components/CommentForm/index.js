@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../../utils/api';
+import Moment from 'moment';
 
+// REPLY STRETCHGOAL
 const CommentForm = (props) => {
   const { id: gameId } = useParams();
   const [commentText, setText] = useState({commentBody: '', commentBy: props.username});
