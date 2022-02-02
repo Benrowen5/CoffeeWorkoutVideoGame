@@ -8,7 +8,9 @@
 }
 
 body {
+  width: 100vw;
   margin: 0;
+  overflow-x: hidden;
   background-color: var(--off-white);
   color: var(--darkest);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -18,57 +20,53 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  width: 100%;
+}
+
 a{
   text-decoration: none;
 }
 
+/* HOMEPAGE */
 .favoriteList {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  /* justify-content: space-evenly; */
   padding: 0 20px 0 20px;
   margin: 20px;
 }
 
-.favoriteList a {
+.favoriteList div {
+  width: 20%;
+  max-width: 60%;
   margin: 10px;
-
+  flex: 1 1;
 }
 
-.favoriteList a {
-  padding: 5px;
-  margin: 15px;
-  flex: 0;
-}
-
-.homepage-container {
-  display: flex;
-  flex-wrap: no-wrap; 
-}
-
-.homepage-container section {
-  flex: 1 75%;
-}
 
 .flex-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: no-wrap;
+  overflow-x: auto;
+  margin-right: 20px;
+
 }
 
 .left-side {
+  flex: 2 100%;
   border: 1px solid var(--mid-light);
   margin: 10px;
   padding: 10px;
-  width: 75%;
 }
 
+/* END HOMEPAGE */
 
 .gameList {
+  flex: 1 20%;
   border: 1px solid var(--mid-light);
   margin: 10px;
   padding: 10px;
-  width: 20%;
 }
 
 .gameList a {
@@ -82,3 +80,68 @@ a{
   width: 90%;
   list-style: none;
 }
+
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */ 
+@media screen and (max-width: 900px) {
+  .favoriteList {
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  .favoriteList div {
+    margin: 10px;
+    flex: 90%;
+  }
+
+  .left-side {
+    width: 60%;
+  }
+
+  .gameList {
+    margin: 0;
+  }
+
+  .gameList h3 {
+    text-align: left;
+  }
+
+  .favoriteList {
+    justify-content: center;
+  }
+}
+
+/* MEDIA QUERY FOR TABLETS AND SMALLER  */
+@media screen and (max-width: 768px) {
+  .favoriteList a {
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .Game_game__75BEy {
+    margin: 0;
+    /* width: 90%; */
+    margin: 0;
+  }
+
+}
+
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 575px) {
+
+  .favoriteList a {
+    margin: 0px;
+  }
+
+  .gameList {
+    text-align: center;
+  }
+
+  .gameList ol {
+    list-style: none;
+  }
+
+  .flex-row {
+    flex-wrap: wrap;
+    margin-right: 5px;
+  }
+} 
