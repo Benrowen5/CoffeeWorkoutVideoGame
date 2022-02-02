@@ -8,8 +8,8 @@ import styles from "./Dashboard.module.css";
 
 function Store() {
     return (
-        <section>
-            <section className='store flex-row'>
+        <section className='flex-row'>
+            <section className='left-side flex-row'>
                 <Title title={'Store'}/>
                 <div className={styles.gamesList}>
                     <Game

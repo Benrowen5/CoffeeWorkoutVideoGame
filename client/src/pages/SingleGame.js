@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import api from '../utils/api';
 import moment from 'moment';
 import styles from './SingleGame.module.css';
+import Title from "../components/Title/Title";
 
 
 const VideoGame = (props) => {
@@ -66,17 +67,17 @@ const VideoGame = (props) => {
    
 
     return (
-        <section className={styles.genre}>
-            <div className='cover'>
-                <h1>{singleGameData.title}</h1>
+        <section className='flex-row'>
+            <div className='left-side'>
+                <Title title={singleGameData.title}/>
                 <h3>{singleGameData.genre}</h3>
-                <p>{singleGameData.desc}</p>
+                <p className={styles.desc}>{singleGameData.description}</p>
                 <img src={singleGameData.image} alt={singleGameData.title} style={{ height: "250px" }} />
 
                 {auth.loggedIn() ? (
                     <>
                         <div>
-                            <button type="button" className="fav-btn" onClick={favoriteGame}>Favorite</button>
+                            <button type="button" className={styles.favBtn} onClick={favoriteGame}>Favorite</button>
                         </div>
                         <form
                         className="flex-row"
