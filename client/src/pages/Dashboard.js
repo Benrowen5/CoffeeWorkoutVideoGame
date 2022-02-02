@@ -1,44 +1,47 @@
-// import React, { useState, useEffect } from 'react';
-// import Auth from '../../utils/auth'
-// import api from '../../utils/api';
+import React, { useState, useEffect } from 'react';
+import api from '../utils/api';
+import styles from './Dashboard.module.css';
+import GameList from "../components/GameList";
+import Title from "../components/Title/Title";
+import Game from "../components/Game/Game";
 
 
 
-function Dashboard(){
-    // // starter function for calling favedGames
-    // // waiting for route
-    // const [faveGameData, setFaveGameData] = useState({});
-    // const faveGameDataLength = Object.keys(faveGameData).length;
+const Dashboard = (props) => {
+    const userId = props.id;
+    console.log(userId);
+    
+    // starter function for calling favedGames
+    // waiting for route
+    const [faveGameData, setFaveGameData] = useState([]);
 
-    // useEffect(() => {
-    //     const getFaveGameData = async () => {
-    //         try {
-    //             const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-    //             if (!token) {
-    //             return false;
-    //             }
-
-    //             const response = await api.getUser(token);
-
-    //             if (!response.ok) {
-    //             throw new Error('something went wrong!');
-    //             }
-
-    //             const user = await response.json();
-    //             setFaveGameData(user);
-    //         } catch (err) {
-    //             console.error(err);
-    //         }
-    //         };
-    //         getFaveGameData()
-    //     }, [faveGameDataLength]
-    // );
-
+    useEffect(()=>{
+        api.getUser(userId).then(res=>{
+            if (res.status < 200 || res.status > 299 ) {
+                throw new Error('something went wrong!');
+            }
+            setFaveGameData(res.data.favorites)
+        })
+    },[]);
 
     return(
-        <div>Dashboard</div>
+        <div>
+            <Title title={'Your favorite games'}/>
+            <div className={styles.gamesList}>
+                    <div>
+                        {faveGameData.map((game) => (
+                            <Game
+                            img={game.image}
+                            alt={game.title}
+                            title={game.title}
+                            desc={game.description}
+                            />
+                        ))}
+                    </div>
+            </div>
+        </div>
     )
 };
 
 export default Dashboard;
+

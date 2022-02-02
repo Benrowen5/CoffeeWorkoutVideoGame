@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Navigation.module.css';
 import { Link } from 'react-router-dom';
 import auth from '../../utils/auth';
 
@@ -7,7 +8,33 @@ function Navigation(props) {
   const tabsLoggedOut = ['Homepage', 'Store', 'Login']
   const tabsLoggedIn = ['Homepage', 'Store', 'Dashboard']
   return (
-    <header className="nav flex-row">
+      <nav className={styles.nav}>
+          <a data-testid="link" href="/" className={styles.logo}>
+              Vapor
+          </a>
+          <div>
+              {auth.loggedIn() ? (
+                  <>
+                      <ul className={styles.navMenu}>
+                          {tabsLoggedIn.map(tab => (
+                              <li className={styles.navMenuItem} key={tab}>
+                                  <Link to={'/' + tab.toLowerCase()}>{tab}</Link>
+                              </li>
+                          ))}<li className={styles.navMenuItem}><Link to={'/'} onClick={auth.logout}>Logout</Link></li>
+                      </ul><p className={styles.navGreeting}>Hello, <span className={styles.navUsername}>{props.username}</span></p>
+                  </>
+              ):(<>
+                  <ul>
+                      {tabsLoggedOut.map(tab => (
+                          <li className={styles.navMenuItem} key={tab}>
+                              <Link to={'/' + tab.toLowerCase()}>{tab}</Link>
+                          </li>
+                      ))}
+                  </ul>
+              </>)}
+          </div>
+      </nav>
+    /*<header className="nav flex-row">
       <h1>
         <a data-testid="link" href="/">
           Vapor
@@ -35,7 +62,7 @@ function Navigation(props) {
           </ul>
         </>)}
       </nav>
-    </header>
+    </header>*/
   );
 }
 

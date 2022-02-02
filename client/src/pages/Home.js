@@ -4,12 +4,9 @@ import TopGames from '../components/TopGames';
 
 const Home = () => {
     return (
-        <div className="App">
-            <section className='flex-row'>
-                <About></About>
-                <TopGames />
-            </section>
-            
+        <div>
+            <About/>
+            <GameList/>
         </div>
     );
 }
