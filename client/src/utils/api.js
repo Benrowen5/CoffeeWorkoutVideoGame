@@ -30,6 +30,9 @@ export default {
     addFavorite: function (userId, gameId) {
         return axios.post('/api/users/'+userId+'/favorites/'+gameId);
     },
+    deleteFavorite: function (userId, gameId) {
+        return axios.delete('/api/users/'+userId+'/favorites/'+gameId);
+    },
 
     // GAMES
     getAllGames: function () {
