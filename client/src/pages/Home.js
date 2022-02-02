@@ -18,7 +18,11 @@ const Home = () => {
                     dictumst. Phasellus mattis nunc sed orci consequat laoreet. Praesent id nisl nibh.
                     Curabitur imperdiet ultricies mollis. In hac habitasse platea dictumst.
                 </p>
-                <TopGames />
+
+                    <div style={{paddingRight: "970px",}}>
+                        <TopGames />
+                    </div>
+                
             </div>
             <GameList/>
         </div>

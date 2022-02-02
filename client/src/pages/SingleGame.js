@@ -68,19 +68,20 @@ const VideoGame = (props) => {
 
     return (
         <section className='flex-row'>
-            <div className='left-side'>
-                <Title title={singleGameData.title}/>
+            <div className='left-side' style={{textAlign: "center"}}>
+                <Title title={singleGameData.title} />
                 <h3>{singleGameData.genre}</h3>
-                <p className={styles.desc}>{singleGameData.description}</p>
-                <img src={singleGameData.image} alt={singleGameData.title} style={{ height: "250px" }} />
-
+                <div className= {styles.desc}>
+                    <p>{singleGameData.description}</p>
+                </div>
+                <img src={singleGameData.image} alt={singleGameData.title} style={{ height: "350px" }} />
                 {auth.loggedIn() ? (
                     <>
                         <div>
                             <button type="button" className={styles.favBtn} onClick={favoriteGame}>Favorite</button>
                         </div>
                         <form
-                        className="flex-row"
+                        className= {styles.comment}
                         onSubmit={handleFormSubmit}
                         >
                             <textarea
@@ -91,9 +92,12 @@ const VideoGame = (props) => {
                                 className="form-input col-12 col-md-9"
                                 onChange={handleCommentChange}
                             ></textarea>
-                            <button className="btn col-12 col-md-3" type="submit">
+                            <div>
+                                <button className={styles.submit} type="submit">
                                 Submit
-                            </button>
+                                 </button>
+                            </div>
+                            
                         </form>
                     </>
                 ) : (<></>)}
