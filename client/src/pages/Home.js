@@ -7,9 +7,13 @@ import styles from '../pages/Dashboard.module.css'
 const Home = () => {
     return (
         <div>
-            <About/>
-            <TopGames />
-            <GameList/>
+            <section className="homepage-container">
+                <About className="about"/>
+                <GameList className="game-list"/>
+            </section>
+            <section className="homepage-container2">
+                <TopGames />
+            </section>
         </div>
     );
 }

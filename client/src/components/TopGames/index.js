@@ -25,13 +25,15 @@ const TopGames = () => {
         <div>
             <h3>Featured Games:</h3>
                 <div className="favoriteList">
-                    {topFavorites.map((favorite) => (
-                        <Game
-                        img={favorite.image}
-                        alt={favorite.title}
-                        title={favorite.title}
-                        desc={favorite.description}
-                        />
+                    {topFavorites.map((favorite) => (                  
+                        <Link to={'/game/' + favorite._id} key={favorite.title}>
+                            <Game
+                                img={favorite.image}
+                                alt={favorite.title}
+                                title={favorite.title}
+                                desc={favorite.description}
+                            />
+                        </Link>
                     ))}
                 </div>
         </div>
