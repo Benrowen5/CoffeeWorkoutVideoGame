@@ -26,14 +26,14 @@ const TopGames = () => {
         <div className='top-games'>
             <Title title={'Featured Games:'}/>
                 <div className="favoriteList">
-                    {topFavorites.map((favorite) => (                  
+                    {topFavorites.map((favorite) => (
                         <Game
-                            img={favorite.image}
-                            alt={favorite.title}
-                            title={favorite.title}
-                            desc={favorite.description}
+                        img={favorite.image}
+                        alt={favorite.title}
+                        title={favorite.title}
+                        desc={favorite.description}
                         />
-                    ))}    
+                    ))}
                 </div>
         </div>
     );
