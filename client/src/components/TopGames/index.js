@@ -28,6 +28,7 @@ const TopGames = () => {
                 <div className="favoriteList">
                     {topFavorites.map((favorite) => (
                         <Game
+                        id={favorite._id}
                         img={favorite.image}
                         alt={favorite.title}
                         title={favorite.title}
