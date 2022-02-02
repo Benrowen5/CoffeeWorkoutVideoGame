@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../utils/api';
+import Title from "../../components/Title/Title";
 
 const GameList = () => {
     const [gameData, setGameData] = useState([]);
@@ -17,12 +18,10 @@ const GameList = () => {
 
     return (
         <div className='gameList'>
-            <h3>
-                Top Games of 2021:
-            </h3>
+            <Title title={'Top Games of 2021:'}/>
             <ol>
                 {gameData.map((game) => (
-                    <li key={game.title}>
+                    <li style={{fontSize: "18px", padding: "2px 10px"}} key={game.title}>
                         <Link to={'/game/' + game._id}>{game.title}</Link>
                     </li>
                 ))}

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../utils/api';
 import styles from './Dashboard.module.css';
-import GameList from "../components/GameList";
 import Title from "../components/Title/Title";
 import Game from "../components/Game/Game";
 
@@ -28,9 +27,10 @@ const Dashboard = (props) => {
         <div>
             <Title title={'Your favorite games'}/>
             <div className={styles.gameList}>
-                    <div>
+                    <div className="favoriteList">
                         {faveGameData.map((game) => (
                             <Game
+                            id={game._id}
                             img={game.image}
                             alt={game.title}
                             title={game.title}
