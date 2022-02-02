@@ -22,6 +22,19 @@ a{
   text-decoration: none;
 }
 
+.favoriteList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 0 20px 0 20px;
+  margin: 20px;
+}
+
+.favoriteList div {
+  margin: 10px 20px 10px 20px;
+}
+
+
 /*
 .fav-btn {
   background-color: var(--middle);
