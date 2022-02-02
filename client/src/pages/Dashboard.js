@@ -27,7 +27,7 @@ const Dashboard = (props) => {
     return(
         <div>
             <Title title={'Your favorite games'}/>
-            <div className={styles.gamesList}>
+            <div className={styles.gameList}>
                     <div>
                         {faveGameData.map((game) => (
                             <Game

@@ -2,9 +2,23 @@
 
 .gamesList{
     margin: 30px 0;
+    /* display: flex; */
+    text-align: right;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 50px;
+    padding: 50px;
+    list-style: inside;
+}
+.img{
+    width: 300px;
+    height: 400px;
+}
+
+
+.gameList{
+    margin: 30px 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 20px;
     padding: 0 50px;
 }
-

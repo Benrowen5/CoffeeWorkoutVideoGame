@@ -5,8 +5,8 @@ import auth from '../../utils/auth';
 
 //use props.username
 function Navigation(props) {
-  const tabsLoggedOut = ['Homepage', 'Store', 'Login']
-  const tabsLoggedIn = ['Homepage', 'Store', 'Dashboard']
+  const tabsLoggedOut = ['Homepage', 'Store', 'Login', 'Cart']
+  const tabsLoggedIn = ['Homepage', 'Store', 'Dashboard', 'Cart']
   return (
       <nav className={styles.nav}>
           <a data-testid="link" href="/" className={styles.logo}>
