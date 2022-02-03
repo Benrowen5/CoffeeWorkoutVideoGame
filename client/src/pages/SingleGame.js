@@ -12,6 +12,7 @@ const VideoGame = (props) => {
     const [singleGameData, setSingleGameData] = useState([]);
     const [commentText, setText] = useState({commentBody: '', commentBy: props.username});
     const [hidden, setHidden] = useState(true);
+    
 
     const handleCommentChange = (event) => {
         const { name, value } = event.target;
@@ -36,9 +37,17 @@ const VideoGame = (props) => {
             if (res.status < 200 || res.status > 299 ) {
                 throw new Error('something went wrong!');
             }
-            console.log(res.data.favorites);
+            let favedIds = [];
+            // console.log(res.data.favorites);
+            res.data.favorites.map((faveGames)=>{
+                favedIds.push(faveGames._id);
+            })
+            // console.log(favedIds);
+            let hide = favedIds.includes(gameId)
+            // console.log(hide);
+            setHidden(hide);
         })
-    }, [])
+    }, [hidden])
 
     function favoriteGame() {
         try {
@@ -47,20 +56,20 @@ const VideoGame = (props) => {
             if (response.status < 200 || response.status > 299) {
                 throw new Error('something went wrong!');
             }
-            setHidden(false)
+            setHidden(true)
         } catch (e) {
             console.error(e);
         }
     }
 
-    function removeGame(gameId) {
+    function removeGame() {
         try {
             const response = api.deleteFavorite(props.id, gameId);
-            console.log(props.id, gameId);
+            // console.log(props.id, gameId);
             if (response.status < 200 || response.status > 299) {
                 throw new Error('something went wrong!');
             }
-            setHidden(true)
+            setHidden(false)
         } catch (e) {
             console.error(e);
         }
@@ -101,12 +110,13 @@ const VideoGame = (props) => {
                     <>
                         {hidden ? (
                             <>    
+                            <div className='deleteFave'>
+                                <button type="button" className={styles.favBtn} onClick={() => removeGame()}>Remove From Favorites</button>
+                            </div>
+                            </>) : (
+                            <>
                             <div>
                                 <button type="button" className={styles.favBtn} onClick={favoriteGame}>Favorite</button>
-                            </div></>) : (
-                            <>
-                            <div className='deleteFave'>
-                                <button type="button" className={styles.favBtn} onClick={() => removeGame(singleGameData._id)}>Remove From Favorites</button>
                             </div>
                             </>
                             )
@@ -140,7 +150,7 @@ const VideoGame = (props) => {
                     <ul>
                         {singleGameData.comments?.slice(0).reverse().map((comment) => (
                             <li key={comment._id} className="comment">
-                                {moment(comment.createdAt).format('MMM Do YYYY, h:mm:ss a')}
+                                {moment(comment.createdAt).format('MMM D, YYYY  h:mm a')}
                                 <div>
                                     {comment.commentBody} <br/>
                                     {comment.commentBy}
