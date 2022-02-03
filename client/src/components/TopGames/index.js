@@ -1,8 +1,6 @@
-import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import api from '../../utils/api';
 import Game from '../Game/Game';
-import Title from "../../components/Title/Title";
 
 const TopGames = () => {
     const [topFavorites, setTopFavorites] = useState([]);
@@ -24,7 +22,7 @@ const TopGames = () => {
 
     return (
         <div className='top-games'>
-            <Title title={'Featured Games:'}/>
+            <h1 className='title'>Featured Games:</h1>
                 <div className="favoriteList">
                     {topFavorites.map((favorite) => (
                         <Game

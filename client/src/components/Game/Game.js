@@ -6,7 +6,7 @@ const Game = ({id, img, alt, title, desc}) => {
         <div className={styles.game}>
             <img className={styles.gameCover} src={img} alt={alt}/>
             <Link className={styles.gameTitle} to={'/game/' + id}>{title}</Link>
-            <p className={styles.gameDesc}>{desc}</p>
+            {/* <p className={styles.gameDesc}>{desc}</p> */}
         </div>
     );
 }

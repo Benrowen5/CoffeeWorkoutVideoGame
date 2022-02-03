@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Auth from '../../utils/auth';
 import api from '../../utils/api';
 import { Link } from 'react-router-dom';
-import Title from "../Title/Title";
 import styles from './LoginForm.module.css';
 
 const LoginForm = (props) => {
@@ -42,7 +41,8 @@ const LoginForm = (props) => {
 
   return (
     <section>
-        <Title title={'Login'}/>
+        <h1 className='title'>Login</h1>
+        
           <div>
             <form className={styles.form} onSubmit={loginFormSubmit}>
               <input

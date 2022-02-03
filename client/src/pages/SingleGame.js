@@ -6,8 +6,6 @@ import { useParams } from 'react-router-dom';
 import api from '../utils/api';
 import moment from 'moment';
 import styles from './SingleGame.module.css';
-import Title from "../components/Title/Title";
-
 
 const VideoGame = (props) => {
     const { id: gameId } = useParams();
@@ -93,10 +91,10 @@ const VideoGame = (props) => {
     return (
         <section className='flex-row'>
             <div className='left-side' style={{textAlign: "center"}}>
-                <Title title={singleGameData.title} />
+                <h1 className='title'>{singleGameData.title}</h1>
                 <h3>{singleGameData.genre}</h3>
                 <div className= {styles.desc}>
-                    <p>{singleGameData.description}</p>
+                    <p className= {styles.p}>{singleGameData.description}</p>
                 </div>
                 <img src={singleGameData.image} alt={singleGameData.title} style={{ height: "350px" }} />
                 {auth.loggedIn() ? (
