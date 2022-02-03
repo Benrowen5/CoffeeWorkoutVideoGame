@@ -11,7 +11,7 @@ const VideoGame = (props) => {
     const { id: gameId } = useParams();
     const [singleGameData, setSingleGameData] = useState([]);
     const [commentText, setText] = useState({commentBody: '', commentBy: props.username});
-    const [hidden, setHidden] = useState(true);
+    const [hidden, setHidden] = useState(false);
     
 
     const handleCommentChange = (event) => {
