@@ -13,7 +13,8 @@ const VideoGame = (props) => {
     const { id: gameId } = useParams();
     const [singleGameData, setSingleGameData] = useState([]);
     const [commentText, setText] = useState({commentBody: '', commentBy: props.username});
-    
+    const [hidden, setHidden] = useState(true);
+
     const handleCommentChange = (event) => {
         const { name, value } = event.target;
         setText({
@@ -32,6 +33,15 @@ const VideoGame = (props) => {
         })
     }, [gameId, commentText]);
 
+    useEffect(()=>{
+        api.getUser(props.id).then(res=>{
+            if (res.status < 200 || res.status > 299 ) {
+                throw new Error('something went wrong!');
+            }
+            console.log(res.data.favorites);
+        })
+    }, [])
+
     function favoriteGame() {
         try {
             const response = api.addFavorite(props.id, gameId);
@@ -39,6 +49,20 @@ const VideoGame = (props) => {
             if (response.status < 200 || response.status > 299) {
                 throw new Error('something went wrong!');
             }
+            setHidden(false)
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
+    function removeGame(gameId) {
+        try {
+            const response = api.deleteFavorite(props.id, gameId);
+            console.log(props.id, gameId);
+            if (response.status < 200 || response.status > 299) {
+                throw new Error('something went wrong!');
+            }
+            setHidden(true)
         } catch (e) {
             console.error(e);
         }
@@ -77,9 +101,18 @@ const VideoGame = (props) => {
                 <img src={singleGameData.image} alt={singleGameData.title} style={{ height: "350px" }} />
                 {auth.loggedIn() ? (
                     <>
-                        <div>
-                            <button type="button" className={styles.favBtn} onClick={favoriteGame}>Favorite</button>
-                        </div>
+                        {hidden ? (
+                            <>    
+                            <div>
+                                <button type="button" className={styles.favBtn} onClick={favoriteGame}>Favorite</button>
+                            </div></>) : (
+                            <>
+                            <div className='deleteFave'>
+                                <button type="button" className={styles.favBtn} onClick={() => removeGame(singleGameData._id)}>Remove From Favorites</button>
+                            </div>
+                            </>
+                            )
+                        }
                         <form
                         className= {styles.comment}
                         onSubmit={handleFormSubmit}

@@ -8,7 +8,7 @@ import Game from "../components/Game/Game";
 
 const Dashboard = (props) => {
     const userId = props.id;
-    console.log(userId);
+    // console.log(userId);
     
     // starter function for calling favedGames
     // waiting for route
@@ -37,6 +37,7 @@ const Dashboard = (props) => {
                             desc={game.description}
                             />
                         ))}
+                        
                     </div>
             </div>
         </div>
