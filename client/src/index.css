@@ -67,6 +67,7 @@ a {
 
 /* END HOMEPAGE */
 
+/* GAMELIST STYLE */
 .gameList {
   flex: 1 20%;
   border: 1px solid var(--mid-light);
@@ -78,13 +79,50 @@ a {
   color: var(--darkest);
 }
 
-.discussion li {
+/* COMMENTS SECTION STYLE */
+.discussion ul {
+  padding-inline-start: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.comment {
   border: 1px solid var(--darkest);
   margin: 10px;
   padding: 10px;
   width: 90%;
   list-style: none;
+  justify-self: center;
+  text-align: left;
 }
+
+.textarea-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#commentBody {
+  margin: 25px;
+  padding: 25px;
+  width: 20em
+}
+
+.comment-body {
+  margin: 5px 0 0 10px;
+}
+
+.favBtn{
+  background: var(--darkest);
+  color: var(--off-white);
+  margin: 0 50px;
+  border: 0 none;
+  outline: 0 none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
 
 /* STORE */
 .store-items{
@@ -153,6 +191,35 @@ a {
     text-align: center;
   }
 
+  .comment {
+    font-size: smaller;
+  }
+
+  #commentBody {
+    margin: 25px;
+    padding: 25px;
+    width: 20em
+  }
+
+  .textarea {
+    resize: none;
+    padding-top: 25px;
+  }
+
+  .discussion h3 {
+    margin-block-start: 2em;
+    margin-block-end: 0;
+  }
+
+  .discussion ul {
+    margin-block-start: 0px;
+  }
+
+
+  .form-input {
+    width:auto;
+  }
+
   .left-side p {
     padding: 10px;
   }
@@ -167,8 +234,12 @@ a {
     padding-inline-start: 0px;
   }
 
+  .favBtn {
+    margin-top: 5px;
+  }
+
   .flex-row {
     flex-wrap: wrap;
-    margin-right: 5px;
+    margin-right: 0px;
   }
 } 

@@ -10,7 +10,8 @@
 }
 
 .p{
-    font-size: 1.2em;;
+    font-size: 1.2em;
+    margin-block-end: 0px;
 }
 
 .genre{
