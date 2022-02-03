@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 const Game = ({id, img, alt, title, desc}) => {
     return (
-        <Link className={styles.game} to={'/game/' + id}>
+        <div className={styles.game}>
             <img className={styles.gameCover} src={img} alt={alt}/>
             <Link className={styles.gameTitle} to={'/game/' + id}>{title}</Link>
             {/* <p className={styles.gameDesc}>{desc}</p> */}
-        </Link>
+        </div>
     );
 }
 
