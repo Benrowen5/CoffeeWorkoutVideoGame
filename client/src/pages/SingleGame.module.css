@@ -5,12 +5,13 @@
 }
 
 .desc{
-    margin: 0 50px;
+    margin: 20px 50px;
     min-width: 60%;
 }
 
 .p{
-    font-size: 1.2em;;
+    font-size: 1.2em;
+    margin-block-end: 0px;
 }
 
 .genre{
@@ -40,7 +41,7 @@
     }
 
     .desc{
-        margin: 0;
+        margin: 20 0 20 0;
         min-width: 60%;
     }
 }

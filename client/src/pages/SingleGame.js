@@ -105,11 +105,12 @@ const VideoGame = (props) => {
         <section className='flex-row'>
             <div className='left-side' style={{textAlign: "center"}}>
                 <h1 className='title'>{singleGameData.title}</h1>
-                <h3 className='genre'>{singleGameData.genre}</h3>
+                <img className="single-game-image" src={singleGameData.image} alt={singleGameData.title} />
+                <h3>{singleGameData.genre}</h3>
                 <div className= {styles.desc}>
                     <p className= {styles.p}>{singleGameData.description}</p>
                 </div>
-                <img className="single-game-image" src={singleGameData.image} alt={singleGameData.title} />
+                
                 {auth.loggedIn() ? (
                     <>
                         {hidden ? (
@@ -125,25 +126,28 @@ const VideoGame = (props) => {
                             </>
                             )
                         }
-                        <form
-                        className= {styles.comment}
-                        onSubmit={handleFormSubmit}
-                        >
-                            <textarea
-                                name='commentBody'
-                                id='commentBody'
-                                placeholder="comment..."
-                                value={commentText.commentBody}
-                                className="form-input col-12 col-md-9"
-                                onChange={handleCommentChange}
-                            ></textarea>
-                            <div>
-                                <button className={styles.submit} type="submit">
-                                Submit
-                                 </button>
-                            </div>
-                            
-                        </form>
+                            <form
+                            className="comment-form"
+                            onSubmit={handleFormSubmit}
+                            >
+                                <div className="textarea-wrapper"><br></br>
+                                    <textarea
+                                        name='commentBody'
+                                        id='commentBody'
+                                        placeholder="comment..."
+                                        value={commentText.commentBody}
+                                        className="comment-area"
+                                        // rows="10" cols="40"
+                                        onChange={handleCommentChange}
+                                    ></textarea>
+                                </div>
+                                <div>
+                                    <button className="favBtn" type="submit">
+                                    Submit
+                                    </button>
+                                </div>
+                                
+                            </form>
                     </>
                 ) : (<></>)}
                                 
@@ -154,10 +158,11 @@ const VideoGame = (props) => {
                     <ul>
                         {singleGameData.comments?.slice(0).reverse().map((comment) => (
                             <li key={comment._id} className="comment">
-                                {moment(comment.createdAt).format('MMM D, YYYY  h:mm a')}
-                                <div className='comments'>
+                                {comment.commentBy} on 
+                                {moment(comment.createdAt).format(' MMM D, YYYY  h:mm a')}
+
+                                <div className="comment-body">
                                     {comment.commentBody} <br/>
-                                    {comment.commentBy}
                                     {comment.replies?.map((reply) => (
                                         <div>
                                             <li key={reply} className="reply">

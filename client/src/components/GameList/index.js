@@ -16,7 +16,7 @@ const GameList = () => {
 
     return (
         <div className='gameList'>
-            <h1 className='title'>Top Games of 2021:</h1>
+            <h1 className='title'>Popular Games:</h1>
             
             <ol>
                 {gameData.map((game) => (

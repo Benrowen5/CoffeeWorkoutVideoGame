@@ -67,8 +67,9 @@ a {
 
 /* END HOMEPAGE */
 
+/* GAMELIST STYLE */
 .gameList {
-  flex: 1 20%;
+  flex: 1 30%;
   border: 1px solid var(--mid-light);
   margin: 10px;
   padding: 10px;
@@ -78,13 +79,51 @@ a {
   color: var(--darkest);
 }
 
-.discussion li {
+/* COMMENTS SECTION STYLE */
+.discussion ul {
+  padding-inline-start: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.comment {
   border: 1px solid var(--darkest);
   margin: 10px;
   padding: 10px;
   width: 90%;
   list-style: none;
+  justify-self: center;
+  text-align: left;
 }
+
+.textarea-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#commentBody {
+  margin: 30px;
+  padding: 5px;
+  width: 40em;
+  height: 10em;
+}
+
+.comment-body {
+  margin: 5px 0 0 10px;
+}
+
+.favBtn{
+  background: var(--darkest);
+  color: var(--off-white);
+  margin: 0 50px;
+  border: 0 none;
+  outline: 0 none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
 
 /* STORE */
 .store-items{
@@ -140,6 +179,20 @@ a {
     margin: 0;
   }
 
+  .flex-row {
+    flex-wrap: wrap;
+    margin-right: 0px;
+  }
+
+  .gameList {
+    text-align: center;
+    /* margin: 0; */
+  }
+
+  .gameList ol {
+    list-style: none;
+    padding-inline-start: 0px;
+  }
 }
 
 /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
@@ -153,22 +206,35 @@ a {
     text-align: center;
   }
 
+  .comment {
+    font-size: smaller;
+  }
+
+  #commentBody {
+    margin: 25px;
+    padding: 25px;
+    width: 20em
+  }
+
+  .textarea {
+    resize: none;
+    padding-top: 25px;
+  }
+
+  .discussion h3 {
+    margin-block-start: 2em;
+    margin-block-end: 0;
+  }
+
+  .discussion ul {
+    margin-block-start: 0px;
+  }
+
   .left-side p {
     padding: 10px;
   }
 
-  .gameList {
-    text-align: center;
-    /* margin: 0; */
-  }
-
-  .gameList ol {
-    list-style: none;
-    padding-inline-start: 0px;
-  }
-
-  .flex-row {
-    flex-wrap: wrap;
-    margin-right: 5px;
+  .favBtn {
+    margin-top: 5px;
   }
 } 
