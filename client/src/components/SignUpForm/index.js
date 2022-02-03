@@ -3,7 +3,6 @@ import api from '../../utils/api';
 import Auth from '../../utils/auth';
 import { Link } from 'react-router-dom';
 import styles from './SignUpForm.module.css';
-import Title from "../Title/Title";
 
 const SignupForm = () => {
     const [formState, setFormState] = useState({ username: '', email: '', password: '' });
@@ -42,7 +41,7 @@ const SignupForm = () => {
 
   return (
     <section>
-        <Title title={'Sign Up'}/>
+        <h1 className='title'>Sign Up</h1>
           <div>
             <form className={styles.form} onSubmit={signUpFormSubmit}>
               <input

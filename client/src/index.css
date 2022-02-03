@@ -28,6 +28,12 @@ a{
   text-decoration: none;
 }
 
+.title{
+  font-weight: 400;
+  font-size: 1.6em;
+  padding: 30px 50px;
+}
+
 /* HOMEPAGE */
 .favoriteList {
   display: flex;

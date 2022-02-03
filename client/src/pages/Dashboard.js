@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../utils/api';
 import styles from './Dashboard.module.css';
-import Title from "../components/Title/Title";
 import Game from "../components/Game/Game";
 
 
@@ -10,8 +9,6 @@ const Dashboard = (props) => {
     const userId = props.id;
     console.log(userId);
     
-    // starter function for calling favedGames
-    // waiting for route
     const [faveGameData, setFaveGameData] = useState([]);
 
     useEffect(()=>{
@@ -25,7 +22,7 @@ const Dashboard = (props) => {
 
     return(
         <div>
-            <Title title={'Your favorite games'}/>
+            <h1 className='title'>Your Favorite Games</h1>
             <div className={styles.gameList}>
                     <div className="favoriteList">
                         {faveGameData.map((game) => (

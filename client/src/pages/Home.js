@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import GameList from '../components/GameList';
 import TopGames from '../components/TopGames';
-import styles from '../pages/Dashboard.module.css'
-import Title from "../components/Title/Title";
 
 const Home = () => {
     return (
         <div className='flex-row'>
             <div className='left-side'>
-                <Title title={'About Vapor'}/>
+                <h1 className='title'>About Vapor</h1>
                 <p style={{fontSize: "18px", padding: "0 50px"}}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum turpis sed ex
                     condimentum molestie. Mauris condimentum lectus ut ornare dignissim. Mauris faucibus urna
