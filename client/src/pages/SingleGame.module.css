@@ -1,23 +1,26 @@
 .cover{
-    width: 70%;
+    width: 100%;
     height: 400px;
     object-fit: cover;
 }
 
 .desc{
-    margin: 0 100px;;
+    margin: 0 50px;
+    width: 60%;
+}
+
+.p{
+    font-size: 1.2em;;
 }
 
 .genre{
     font-weight: 500;
-    margin: auto;
     background: var(--middle);
+    width: 100%;
     height: 100%;
     color: var(--off-white);
     padding: 10px 20px;
-    text-align: center;
     list-style: inside;
-    
 }   
 
 .favBtn{
@@ -29,21 +32,4 @@
     cursor: pointer;
     padding: 10px 20px;
     border-radius: 5px;
-}
-
-.comment{
-    margin: 50px 100px;
-    padding-left: 0px;
-}   
-
-.submit{
-    background: var(--darkest);
-    color: var(--off-white);
-    margin: 0 50px;
-    border: 0 none;
-    outline: 0 none;
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 5px;
-    padding-right: 50px;
 }

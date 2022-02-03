@@ -24,13 +24,18 @@ body {
   width: 100%;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
 .title{
   font-weight: 400;
   font-size: 1.6em;
+  padding: 30px 50px;
+}
+
+p {
+  font-size: 1.0em;
   padding: 30px 50px;
 }
 
