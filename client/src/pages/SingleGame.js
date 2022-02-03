@@ -13,7 +13,6 @@ const VideoGame = (props) => {
     const [commentText, setText] = useState({commentBody: '', commentBy: props.username});
     const [hidden, setHidden] = useState(false);
     
-
     const handleCommentChange = (event) => {
         const { name, value } = event.target;
         setText({
@@ -35,7 +34,9 @@ const VideoGame = (props) => {
 
     // might be able to refactor this to not call user data everytime
     useEffect(()=>{
-        api.getUser(props.id).then(res=>{
+        const token = auth.getToken();
+        if (token && props.id && gameId) {
+            api.getUser(props.id).then(res=>{
             if (res.status < 200 || res.status > 299 ) {
                 throw new Error('something went wrong!');
             }
@@ -50,7 +51,7 @@ const VideoGame = (props) => {
             // console.log(hide);
             setHidden(hide);
         })
-    },[singleGameData],[hidden])
+    }}, [hidden, singleGameData])
 
     function favoriteGame() {
         try {

@@ -12,7 +12,6 @@ const GameList = () => {
             }
             setGameData(res.data)
         })
-        
     },[]);
 
     return (
