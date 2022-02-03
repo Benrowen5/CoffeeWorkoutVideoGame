@@ -8,13 +8,9 @@ const Home = () => {
             <div className='left-side'>
                 <h1 className='title'>About Vapor</h1>
                 <p style={{fontSize: "18px"}}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum turpis sed ex
-                    condimentum molestie. Mauris condimentum lectus ut ornare dignissim. Mauris faucibus urna
-                    mi, ac feugiat metus aliquam maximus. Proin aliquam justo nec diam vulputate vestibulum.
-                    Aenean sollicitudin nulla at nisi ornare, nec suscipit massa eleifend. Morbi tristique
-                    justo vel turpis sollicitudin, et tristique velit convallis. In hac habitasse platea
-                    dictumst. Phasellus mattis nunc sed orci consequat laoreet. Praesent id nisl nibh.
-                    Curabitur imperdiet ultricies mollis. In hac habitasse platea dictumst.
+                Welcome to Vapor. We seek to bring modern functionality and accessibility to an all-in-one gaming service. 
+                Our application allows users to browse video games of all types and genres, view detailed information about each of them, start conversations with fellow app users, and favorite games so that each user can have quick reference and access to their favorites from their dashboard. 
+                We even have some sweet swag available for purchase in our store so check it out!
                 </p>
                 <TopGames />               
             </div>
