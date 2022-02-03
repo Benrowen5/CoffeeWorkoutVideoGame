@@ -36,6 +36,12 @@
 }
 
 @media screen and (max-width: 768px) {
+    .nav ul {
+        padding-inline-start: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
     .nav {
         flex-wrap: wrap;
         justify-content: center;
@@ -69,6 +75,7 @@
 
 @media screen and (max-width: 575px) {
     .logo{
+        padding-top: 10px;
         flex: 100%;
         text-align: center;
         font-size: 1.5em;
@@ -79,5 +86,9 @@
         flex-wrap: wrap;
         justify-content: center;
         padding-inline-start: 0px;
+    }
+
+    .nav ul li {
+        padding: 5px 0;
     }
 } 

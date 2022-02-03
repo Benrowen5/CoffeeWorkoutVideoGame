@@ -4,10 +4,10 @@ import TopGames from '../components/TopGames';
 
 const Home = () => {
     return (
-        <div className='flex-row'>
+        <section className='flex-row'>
             <div className='left-side'>
                 <h1 className='title'>About Vapor</h1>
-                <p style={{fontSize: "18px", padding: "0 50px"}}>
+                <p style={{fontSize: "18px"}}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum turpis sed ex
                     condimentum molestie. Mauris condimentum lectus ut ornare dignissim. Mauris faucibus urna
                     mi, ac feugiat metus aliquam maximus. Proin aliquam justo nec diam vulputate vestibulum.
@@ -19,7 +19,7 @@ const Home = () => {
                 <TopGames />               
             </div>
             <GameList/>
-        </div>
+        </section>
     );
 }
 

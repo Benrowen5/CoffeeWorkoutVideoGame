@@ -36,7 +36,7 @@ const VideoGame = (props) => {
             if (res.status < 200 || res.status > 299 ) {
                 throw new Error('something went wrong!');
             }
-            console.log(res.data.favorites);
+            // console.log(res.data.favorites);
         })
     }, [])
 

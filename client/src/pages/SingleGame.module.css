@@ -38,4 +38,15 @@
     img {
         width: 90%;
     }
+
+    .desc{
+        margin: 0;
+        min-width: 60%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    img {
+        width: 90%;
+    }
 }
