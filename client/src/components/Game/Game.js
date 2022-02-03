@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Game = ({id, img, alt, title}) => {
     return (
-        <div key={id} className={styles.game}>
+        <div className={styles.game}>
             <Link  to={'/game/' + id}>
             <img className={styles.gameCover} src={img} alt={alt}/>
             <h2 className={styles.gameTitle}>{title}</h2>

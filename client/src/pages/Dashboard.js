@@ -6,19 +6,17 @@ import Game from "../components/Game/Game";
 
 
 const Dashboard = (props) => {
-    const userId = props.id;
-    // console.log(userId);
-    
     const [faveGameData, setFaveGameData] = useState([]);
-
+    
     useEffect(()=>{
-        api.getUser(userId).then(res=>{
+        if (props.id) {
+        api.getUser(props.id).then(res=>{
             if (res.status < 200 || res.status > 299 ) {
                 throw new Error('something went wrong!');
             }
             setFaveGameData(res.data.favorites)
         })
-    },[]);
+    }},[props]);
 
     return(
         <div>
@@ -34,7 +32,6 @@ const Dashboard = (props) => {
                             desc={game.description}
                             />
                         ))}
-                        
                     </div>
             </div>
         </div>
