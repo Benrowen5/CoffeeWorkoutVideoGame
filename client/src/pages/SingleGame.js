@@ -96,7 +96,7 @@ const VideoGame = (props) => {
                 <div className= {styles.desc}>
                     <p className= {styles.p}>{singleGameData.description}</p>
                 </div>
-                <img src={singleGameData.image} alt={singleGameData.title} style={{ height: "350px" }} />
+                <img className="single-game-image" src={singleGameData.image} alt={singleGameData.title} />
                 {auth.loggedIn() ? (
                     <>
                         {hidden ? (

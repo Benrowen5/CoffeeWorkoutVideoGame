@@ -6,7 +6,7 @@
 
 .desc{
     margin: 0 50px;
-    width: 60%;
+    min-width: 60%;
 }
 
 .p{
@@ -32,4 +32,10 @@
     cursor: pointer;
     padding: 10px 20px;
     border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    img {
+        width: 90%;
+    }
 }

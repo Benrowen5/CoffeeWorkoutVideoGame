@@ -8,9 +8,9 @@ import styles from "./Dashboard.module.css";
 function Store() {
     return (
         <section className='flex-row'>
-            <section className='left-side flex-row'>
+            <section className='left-side'>
                 <h1 className='title'>Store</h1>
-                <div className={styles.gamesList}>
+                <div className="store-items">
                     <Product
                         img={img1}
                         alt={'uni-sex tank top in black'}

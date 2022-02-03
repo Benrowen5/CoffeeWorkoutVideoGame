@@ -54,6 +54,10 @@
         justify-content: space-around;
         padding-inline-start: 0px;
     }
+
+    .navMenu a {
+        text-decoration: none;
+    }
     
     .navGreeting{
         flex: 100%;

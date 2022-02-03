@@ -34,11 +34,6 @@ a {
   padding: 30px 50px;
 }
 
-/* p {
-  font-size: 1.0em;
-  padding: 30px 50px;
-} */
-
 /* HOMEPAGE */
 .favoriteList {
   display: flex;
@@ -109,7 +104,7 @@ a {
   }
 
   .gameList {
-    margin: 0;
+    margin: 10 0 0 0;
   }
 
   .gameList h3 {
@@ -145,6 +140,7 @@ a {
 
   .gameList {
     text-align: center;
+    margin: 0;
   }
 
   .gameList ol {
