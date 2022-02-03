@@ -12,7 +12,7 @@ function Navigation(props) {
           <a data-testid="link" href="/" className={styles.logo}>
               Vapor
           </a>
-          <div>
+          <div className="nav-pages">
               {auth.loggedIn() ? (
                   <>
                       <ul className={styles.navMenu}>
@@ -21,7 +21,8 @@ function Navigation(props) {
                                   <Link to={'/' + tab.toLowerCase()}>{tab}</Link>
                               </li>
                           ))}<li className={styles.navMenuItem}><Link to={'/'} onClick={auth.logout}>Logout</Link></li>
-                      </ul><p className={styles.navGreeting}>Hello, <span className={styles.navUsername}>{props.username}</span></p>
+                          <p className={styles.navGreeting}>Hello, <span className={styles.navUsername}>{props.username}</span></p>
+                      </ul>
                   </>
               ):(<>
                   <ul>

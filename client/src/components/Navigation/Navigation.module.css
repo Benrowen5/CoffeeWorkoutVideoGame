@@ -1,6 +1,6 @@
 .nav{
     background: var(--off-white);
-    height: 80px;
+    min-height: 80px;
     box-shadow: 0 0 10px var(--mid-dark);
     display: flex;
     align-items: center;
@@ -34,3 +34,46 @@
 .navUsername{
     font-weight: bold;
 }
+
+@media screen and (max-width: 768px) {
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px 5px;
+    }
+
+    .logo{
+        flex: 100%;
+        text-align: center;
+        font-size: 1.5em;
+    }
+
+    .navMenu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding-inline-start: 0px;
+    }
+    
+    .navGreeting{
+        flex: 100%;
+        text-align: center;
+        padding-top: 20px;
+        margin: 0;
+    }
+} 
+
+@media screen and (max-width: 575px) {
+    .logo{
+        flex: 100%;
+        text-align: center;
+        font-size: 1.5em;
+    }
+
+    .navMenu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-inline-start: 0px;
+    }
+} 
