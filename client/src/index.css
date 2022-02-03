@@ -103,9 +103,10 @@ a {
 }
 
 #commentBody {
-  margin: 25px;
-  padding: 25px;
-  width: 20em
+  margin: 30px;
+  padding: 5px;
+  width: 40em;
+  height: 10em;
 }
 
 .comment-body {
@@ -178,6 +179,20 @@ a {
     margin: 0;
   }
 
+  .flex-row {
+    flex-wrap: wrap;
+    margin-right: 0px;
+  }
+
+  .gameList {
+    text-align: center;
+    /* margin: 0; */
+  }
+
+  .gameList ol {
+    list-style: none;
+    padding-inline-start: 0px;
+  }
 }
 
 /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
@@ -215,31 +230,11 @@ a {
     margin-block-start: 0px;
   }
 
-
-  .form-input {
-    width:auto;
-  }
-
   .left-side p {
     padding: 10px;
   }
 
-  .gameList {
-    text-align: center;
-    /* margin: 0; */
-  }
-
-  .gameList ol {
-    list-style: none;
-    padding-inline-start: 0px;
-  }
-
   .favBtn {
     margin-top: 5px;
-  }
-
-  .flex-row {
-    flex-wrap: wrap;
-    margin-right: 0px;
   }
 } 

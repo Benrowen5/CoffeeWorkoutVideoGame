@@ -112,28 +112,28 @@ const VideoGame = (props) => {
                             </>
                             )
                         }
-                        <form
-                        className="comment-form"
-                        onSubmit={handleFormSubmit}
-                        >
-                            <div className="textarea-wrapper"><br></br>
-                                <textarea
-                                    name='commentBody'
-                                    id='commentBody'
-                                    placeholder="comment..."
-                                    value={commentText.commentBody}
-                                    className="comment-area"
-                                    // rows="10" cols="40"
-                                    onChange={handleCommentChange}
-                                ></textarea>
-                            </div>
-                            <div>
-                                <button className="favBtn" type="submit">
-                                Submit
-                                 </button>
-                            </div>
-                            
-                        </form>
+                            <form
+                            className="comment-form"
+                            onSubmit={handleFormSubmit}
+                            >
+                                <div className="textarea-wrapper"><br></br>
+                                    <textarea
+                                        name='commentBody'
+                                        id='commentBody'
+                                        placeholder="comment..."
+                                        value={commentText.commentBody}
+                                        className="comment-area"
+                                        // rows="10" cols="40"
+                                        onChange={handleCommentChange}
+                                    ></textarea>
+                                </div>
+                                <div>
+                                    <button className="favBtn" type="submit">
+                                    Submit
+                                    </button>
+                                </div>
+                                
+                            </form>
                     </>
                 ) : (<></>)}
                                 
