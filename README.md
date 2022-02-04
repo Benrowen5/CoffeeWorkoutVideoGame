@@ -1,4 +1,4 @@
-# CoffeeWorkoutVideoGame
+# Vapor Games
 MERN Stack application
 
   ![License](https://img.shields.io/badge/license-MIT-blue)
