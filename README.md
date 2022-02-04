@@ -6,8 +6,7 @@ MERN Stack application
   ## Description
   Tired of outdated and user-unfriendly styling that you've come to accept? Vapor seeks to bring modern functionality and accessibility to an all-in-one gaming service. Our application allows users to browse video games of all types and genres, view detailed information about each of them, start conversations with fellow app users about the games, and favorite games so that each user can have quick reference and access to their favorites from their dashboard. We even have some sweet swag available for purchase in our store - how sick is that? Built using MERN stack, deployed through Heroku.
   
-  ## Deployed Application
-    https://vapor-games-2022.herokuapp.com
+  Deployed Application: https://vapor-games-2022.herokuapp.com
 
   ![VaporgamesSS](https://user-images.githubusercontent.com/79202800/152452051-45205a02-9e60-4322-9762-bfaf447b1beb.PNG)
   
