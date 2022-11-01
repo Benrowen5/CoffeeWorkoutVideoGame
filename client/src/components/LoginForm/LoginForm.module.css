@@ -2,31 +2,26 @@
     margin: 0 50px;
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width:25%;
 }
 
-.form input{
+.FormControl{
     height: 45px;
     margin-bottom: 10px;
-    border-radius: 10px;
-    border: 0 none;
-    outline: 0 none;
-    box-shadow: 0 0 2px var(--mid-dark);
     padding: 0 20px;
+    color: var(--darkest);
+    background: var(--off-white);
 }
 
 .form button{
     height: 50px;
     background: var(--darkest);
     color: var(--off-white);
-    border: 0 none;
-    outline: 0 none;
-    border-radius: 10px;
     cursor: pointer;
-    margin-bottom: 40px;
 }
 
 .link{
+    margin-top: 40px;
     margin: 0 50px;
     color: var(--middle);
     font-size: 0.8em;

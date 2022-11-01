@@ -3,16 +3,35 @@ import Auth from '../../utils/auth';
 import api from '../../utils/api';
 import { Link } from 'react-router-dom';
 import styles from './LoginForm.module.css';
+import { TextField,
+  IconButton,
+  InputAdornment,
+  FormControl, 
+  Typography} from '@mui/material';
 
 const LoginForm = (props) => {
-  const [formState, setFormState] = useState({ username: '', password: '' });
+  const [formState, setFormState] = useState(
+    { username: '', 
+    password: '',
+    showPassword: false,
+  });
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+  const handleChange = (prop) => (event) => {
     setFormState({
       ...formState,
-      [name]: value,
+      [prop]: event.target.value,
     });
+  };
+
+  const handleClickShowPassword = () => {
+    setFormState({
+      ...formState,
+      showPassword: !formState.showPassword
+    });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
   };
 
   const loginFormSubmit = async event => {
@@ -36,6 +55,7 @@ const LoginForm = (props) => {
     setFormState({
         username: '',
         password: '',
+        showPassword: false,
     });
   };
 
@@ -45,24 +65,45 @@ const LoginForm = (props) => {
         
           <div>
             <form className={styles.form} onSubmit={loginFormSubmit}>
-              <input
-                className='form-input'
-                placeholder='Your username'
-                name='username'
-                type='username'
-                id='username'
-                value={formState.username}
-                onChange={handleChange}
-              />
-              <input
-                className='form-input'
-                placeholder='******'
-                name='password'
-                type='password'
-                id='password'
+              <FormControl>
+                <TextField
+                  id='user-email'
+                  label='Email'
+                  InputLabelProps={{style: {fontSize:13.5}}}
+                  OutlinedInputProps={{style: {fontSize:150}}}
+                  type='text'
+                  value={formState.email}
+                  onChange={handleChange("email")}
+                  fullWidth={true}
+                />
+              </FormControl>
+              <FormControl>
+                <TextField
+                id='user-password'
+                label="Password"
+                InputLabelProps={{style: {fontSize:13.5}}}
+                type={formState.showPassword ? 'text' : 'password'}
                 value={formState.password}
-                onChange={handleChange}
-              />
+                onChange={handleChange("password")}
+                fullWidth={true}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                      >
+                        {formState.showPassword ? 
+                        <Typography>hide</Typography> : 
+                        <Typography>show</Typography>}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+                />
+              </FormControl>
               <button type='submit'>
                 Submit
               </button>

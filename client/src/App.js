@@ -9,7 +9,7 @@ import LoginForm from './components/LoginForm';
 import SignUpForm from './components/SignUpForm';
 import SingleGame from './pages/SingleGame';
 import Dashboard from './pages/Dashboard'
-
+import Cart from './pages/Cart'
 
 
 function App() {
@@ -40,6 +40,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/homepage" component={Home} />
             <Route exact path="/store" component={Store} />
+            <Route exact path="/cart" component={Cart} />
             <Route exact path="/dashboard" component={()=><Dashboard username={user.username} id={user._id}/>} />
             <Route exact path="/login" component={LoginForm} />
             <Route exact path="/signup" component={SignUpForm} />
